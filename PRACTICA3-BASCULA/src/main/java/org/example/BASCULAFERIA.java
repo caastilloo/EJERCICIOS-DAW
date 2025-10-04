@@ -34,7 +34,7 @@ public class BASCULAFERIA {
 
         int altura_max = 230;
         int altura_min = 0;
-        if (altura_max>altura && altura_min>altura){
+        if (altura_max>altura || altura_min>altura){
             System.out.println("ERROR DE LECTURA, Baja de la báscula y vuelve a subir");
         }
 
@@ -51,10 +51,6 @@ public class BASCULAFERIA {
                 teclado.nextLine();
             }
         }while (repetir);
-
-
-
-
 
 
         /*if (peso<75){
