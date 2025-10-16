@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Scanner;
 
-public class BATERIAEJERCICIO {
+public class BATERIAEJERCICIO1 {
 
     static void main() {
 
@@ -21,9 +21,6 @@ public class BATERIAEJERCICIO {
 
         String frase_mayus = frase.toUpperCase();
         System.out.println("Texto a mayusculas: " + frase_mayus);
-
-
-
 
 
     }
