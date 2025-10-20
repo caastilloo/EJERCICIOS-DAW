@@ -71,11 +71,7 @@ public class NUMERODELASUERTE {
             // Imprimos cual es el numero de la suerte del usuario
             System.out.println("Tu número de la suerte es " + suma2);
 
-<<<<<<< HEAD
-            // Controlamos si introducen numeros negativos o ceros
-=======
-        // Controlamos si introducen numeros negativos o ceros
->>>>>>> 7f5bf9d97c2fa701d2605a4cc13d5f89f6b36c5f
+        // Controlamos si introducen otro valor
         }catch (Exception err){
             System.out.println("ERROR. Introduce un formato valido");
         }
