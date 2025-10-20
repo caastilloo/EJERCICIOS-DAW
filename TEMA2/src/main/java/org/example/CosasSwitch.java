@@ -6,7 +6,7 @@ public class CosasSwitch {
 
         char dia_de_la_semana = 'X';
 
-        switch (dia_de_la_semana){
+        switch (dia_de_la_semana){ //toLowerCase o toUpperCase
 
             case 'L':
             case 'M':
