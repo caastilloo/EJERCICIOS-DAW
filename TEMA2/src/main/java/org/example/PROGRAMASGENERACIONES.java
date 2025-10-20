@@ -32,38 +32,40 @@ public class PROGRAMASGENERACIONES {
             return;
         }
 
-        if (modo==1){
-            System.out.println("Introduce tu año de nacimiento...");
-            String anyo_nacimiento = teclado.next();
+        switch (modo){
+            case 1:
+                System.out.println("Introduce tu año de nacimiento...");
+                String anyo_nacimiento = teclado.next();
 
 
-            try {
-                anyo_nacimiento_int = Integer.parseInt(anyo_nacimiento);
-            }catch (Exception err){
-                System.out.println("Formato introducido para el año no es correcto");
-                return;
-            }
+                try {
+                    anyo_nacimiento_int = Integer.parseInt(anyo_nacimiento);
+                }catch (Exception err){
+                    System.out.println("Formato introducido para el año no es correcto");
+                    return;
+                }
+                break;
+            case 2:
+                int edad = 0;
+                System.out.println("Introduce tu edad...");
 
-        } else if (modo==2) {
+                if (teclado.hasNextInt()){
+                    edad = teclado.nextInt();
+                }else {
+                    System.out.println("Formato incorrecto. No es numérico...");
+                    return;
+                }
 
-            int edad = 0;
-            System.out.println("Introduce tu edad...");
+                if (edad>=0){
+                    anyo_nacimiento_int = anyo_actual - edad;
+                }
+                break;
 
-            if (teclado.hasNextInt()){
-                edad = teclado.nextInt();
-            }else {
-                System.out.println("Formato incorrecto. No es numérico...");
-                return;
-            }
-
-            if (edad>=0){
-                anyo_nacimiento_int = anyo_actual - edad;
-            }
-
-        }else {
-            System.out.println("El modo no existe!");
-            return;
+            default:
+                System.out.println("El modo no existe!");
+                break;
         }
+
 
         if (anyo_nacimiento_int >= ANYO_MINIMO && anyo_nacimiento_int <= anyo_actual){
 
