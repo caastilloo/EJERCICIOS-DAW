@@ -29,8 +29,13 @@ public class NUMERODELASUERTE {
             // Sumamos el dia mas el mes mas el año
             int suma = num1_int + num2_int + num3_int;
 
-            // Imprimimos los 3 numeros y el resultado
-            System.out.println(num1 + "+" + num2 + "+" + num3 + " = " + suma);
+            if (num1_int == 0 || num2_int == 0 || num3_int == 0) {
+                System.out.println("No introduzcas 0, introduce un formato correcto ...");
+                return;
+            }else{
+                // Imprimimos los 3 numeros y el resultado
+                System.out.println(num1 + "+" + num2 + "+" + num3 + " = " + suma);
+            }
 
             String suma_string = Integer.toString(suma);
 
@@ -61,7 +66,7 @@ public class NUMERODELASUERTE {
 
         // Controlamos si introducen numeros negativos o ceros
         }catch (Exception err){
-            System.out.println("Introduce el número de caracteres correcto ...");
+            System.out.println("Introduce el número de caracteres correcto (dd/mm/aaaa) ");
         }
 
 
