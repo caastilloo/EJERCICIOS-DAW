@@ -12,6 +12,13 @@ public class NUMERODELASUERTE {
         System.out.println("Introduce tu fecha de naciemiento (dd/mm/aaaa)");
         String fecha = teclado.nextLine();
 
+
+        int tamnyo_fecha = fecha.length();
+        if (tamnyo_fecha > 10){
+            System.out.println("No introduzca negativos, ni mas caractéres de los pedidos (dd/mm/aaaa)");
+            return;
+        }
+
         try {
             // Sacamos el numero del dia
             String num1 = fecha.substring(0,2);
@@ -66,7 +73,7 @@ public class NUMERODELASUERTE {
 
         // Controlamos si introducen numeros negativos o ceros
         }catch (Exception err){
-            System.out.println("Introduce el número de caracteres correcto (dd/mm/aaaa) ");
+            System.out.println("ERROR. Introduce un formato valido");
         }
 
 
