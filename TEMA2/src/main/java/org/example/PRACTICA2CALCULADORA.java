@@ -32,6 +32,7 @@ public class PRACTICA2CALCULADORA {
             System.out.println("> Elige una operación:");
             operacion = teclado.next().charAt(0);
 
+
             if (operacion!= 'R'){
                 System.out.println("> Introduce el segundo operando:");
                 operando2 = teclado.nextFloat();
