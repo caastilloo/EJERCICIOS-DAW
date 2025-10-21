@@ -61,7 +61,9 @@ public class PRACTICA2CALCULADORA {
 
             if (operacion=='/' && operando2==0){
                 System.out.println("No se puede dividir entre 0");
-            }else{
+            } else if (operacion=='R') {
+                System.out.println("La raíz cuadrada de " + operando1 + " es: " + resultado);
+            } else{
                 System.out.println("El resultado de " + operando1 + " " + operacion + " " + operando2 + " es " + resultado);
             }
 
