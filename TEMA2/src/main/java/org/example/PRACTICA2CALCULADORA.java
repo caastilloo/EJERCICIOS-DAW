@@ -19,10 +19,11 @@ public class PRACTICA2CALCULADORA {
         //Damos bienvenida al programa
         System.out.println("**** BIENVENIDO A LA CALCULADORA RÁPIDA ****");
 
-        do {
+        do { //Haremos todo el bloque de codigo que esta dentro del do hasta que el while se cumpla
 
             repetir=false;
 
+            //Intentaremos hacer lo que esta dentro del try y si salta una excepcion el catch lo capturara y hara las intrucciones dentro de este
             try {
                 //Decimos al usuario que introduzca el primer operando y lo guardamos en la variable operando1
                 System.out.println("> Introduce operando:");
@@ -93,7 +94,7 @@ public class PRACTICA2CALCULADORA {
                     System.out.println("El resultado de " + operando1 + " " + operacion + " " + operando2 + " es " + resultado);
                 }
 
-
+            //Capturamos la excepcion y decimos que ha habido un error porque el formato es incorrecto y lo repetimos
             }catch (Exception err){
                 System.out.println("ERROR. Formato incorrecto");
                 repetir=true;
