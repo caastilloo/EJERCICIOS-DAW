@@ -64,63 +64,71 @@ public class PRACTICA3ISBN {
 
                     break; //SALIMOS
 
-                case '2': //EN EL CASO QUE EL USUARIO ELIJA EL 2 EN EL MENU:
+            case '2':
+                System.out.println("Introduzca ISBN a REPARAR:");
+                String isbn_reparar = teclado.nextLine(); // GUARDAMOS EL ISBN A REPARAR EN UUN STRING
 
-                    System.out.println("Introduzca ISBN a REPARAR");
-                    String isbn_reparar = teclado.nextLine(); //GUARDAMOS EL ISBN A REPARAR EN UNA VARIABLE
+                if (isbn_reparar.length() != 10) { //SI EL ISBN NO TIENE 10 DIGITOS NO HAREMOS EL PROCESO
+                    System.out.println("El ISBN tiene que tener 10 dígitos, revise su ISBN.");
+                    break;
+                }
 
-                    if (isbn_reparar.length() !=10){ //SI LA LONGITUD DEL ISBN A REPARAR NO ES 10 NO HAREMOS EL PROCESO DE REPARAR
-                        System.out.println("El ISBN tiene que tener 10 digitos, revise su ISBN.");
-                    } else {
-                        int suma = 0; //VARIABLE PARA LA SUMA
-                        int posicion_interrogacion = -1; //VARIABLE PARA LA POSICION DE LA INTERROGACION
+                int suma = 0; // GUARDAMOS VARIABLE SUMA
+                int posicion_interrogacion = isbn_reparar.indexOf('?'); // GUARDAMOS LA VARIABLE PARA SABER DONDE ESTA LA ?
+                boolean error = false;
 
-                        for (int i = 0; i < 10; i++) { //BUCLE RECORRE CADA DIGITO PARA REPARAR Y DETECTAA QUE HAY UNA ? Y CALCULA LA SUMA DE LOS DEMAS NUUMEROS
-                            char digito = isbn_reparar.charAt(i);
-                            int valor = 0;
-
-                            if (digito == '?') {
-                                posicion_interrogacion = i;
-                                continue; //LO DEJAMOS PARA CALCULAR DESPUES
-                            }
-
-                            if (i == 9 && Character.toUpperCase(digito) == 'X') { //SI LA i ES 9 y EL DIGITO ES x o X
-                                valor = 10; //VALOR DE LA X 10
-                            } else if (digito >= '0' && digito <= '9') { //SI DIGITO ES MAYOR O IGUAL A 0 Y DIGITO ES MENOR O IGUAL A 9
-                                valor = digito - '0'; //EL VALOR SERA DIGITO - 0
-                            } else { //SI NO NO CONTIENE LOS CARACTERES VALIDOS
-                                System.out.println("ISBN contiene caracteres no válidos");
-                                valor = -1; // EL VALOR ES -1
-                                break; //SALIMOS
-                            }
-
-
-                            suma = suma + valor * (10-i); //GUUARDAMOS EN SUMA EL NUMERO PARA COMPROBAR SI ES DIVISIBLE
-                        }
-
-                        if (posicion_interrogacion != -1) { //SI LA POSICION DE LA INTERROGACION ES DIFERENTE A 1
-                            for (int n = 0; n <= 10; n++) {
-                                int total = suma + n * (10 - posicion_interrogacion);
-                                if (total % 11 == 0) {
-                                    if (n == 10 && posicion_interrogacion == 9) {
-                                        System.out.println("El dígito que falta es: X");
-                                    } else {
-                                        System.out.println("El dígito que falta es: " + n);
-                                    }
-                                    break; //SALIMOS
-                                }
-                            }
-                        } else { //SI NO COMPROBAMOS SI ES DIVISIBLE ENTRE 11
-                            if (suma % 11 == 0) {
-                                System.out.println("El ISBN ya es válido.");
-                            } else {
-                                System.out.println("El ISBN no es válido y no tiene '?' para reparar.");
-                            }
-                        }
-
+                for (int i = 0; i < 10; i++) {
+                    if (i == posicion_interrogacion){ // SI LA i ES IGUAL A LA POSICION DEL INTERROGANTE CONTINUAMOS
+                        continue;
                     }
 
-                    break; //SALIMOS
+                    char digito = isbn_reparar.charAt(i); // VARIABLE CHAR (DIGITO)
+                    int valor = 0; // VARIABLE VALOR
+
+                    if (i == 9 && Character.toUpperCase(digito) == 'X') { // SI LA i ES 9 Y EL DIGITO ES x o X
+                        valor = 10; // VALOR = 10
+                    } else if (digito >= '0' && digito <= '9') { // SI EL DIGITO ES MAYOR O IGUAL A 0 Y DIGITO ES MAYOR O IGUAL A 9
+                        valor = digito - '0'; // VALOR ES EL DIGITO - EL 0
+                    } else { // SI NO
+                        System.out.println("ISBN contiene caracteres no válidos.");
+                        error = true; // ES UN ERROR
+                        break;
+                    }
+
+                    suma = suma + valor * (10 - i); // VARIABLE SUMA
+                }
+
+                if (!error) {
+                    if (posicion_interrogacion != -1) { // SI LA POSICION DE LA INTERROGACION ES DIFERENTE A MENOS 1
+                        boolean encontrado = false; // BOOLEANO DE ENCONTRADO
+
+                        for (int n = 0; n <= 10; n++) {
+                            int total = suma + n * (10 - posicion_interrogacion);
+                            if (total % 11 == 0) {
+                                if (n == 10 && posicion_interrogacion == 9) { // SI n == 10 Y POSICION INTERROGACION ES IGUAL A 9
+                                    System.out.println("El dígito que falta es: X");
+                                } else { // SI NO
+                                    System.out.println("El dígito que falta es: " + n);
+                                }
+                                encontrado = true; // LO HEMOS ENCONTRADO
+                                break;
+                            }
+                        }
+
+                        if (!encontrado) { // SI NO ES ENCONTRADA
+                            System.out.println("No se encontró un dígito que haga el ISBN válido.");
+                        }
+
+                    } else { // SI NO
+                        if (suma % 11 == 0) { // VALIDAMOS QUE SEA DIVISIBLE ENTRE 11
+                            System.out.println("El ISBN ya es válido.");
+                        } else { // SI NO
+                            System.out.println("El ISBN no es válido y no tiene '?' para reparar.");
+                        }
+                    }
+                }
+
+                break; //SALIMOS
 
                 case 'x': //EN EL CASO DE QUE EL USUARIO ELIJA X SALDREMOS DEL PROGRAMA
                     System.out.println("Saliendo ...");
