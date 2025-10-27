@@ -10,7 +10,7 @@ public class StringsCosas {
         int tamanyo = frase.length();
         System.out.println(tamanyo);
 
-        System.out.println(frase.charAt(34));
+        System.out.println(frase.charAt(31));
         String trozo = frase.substring(38,45);
         System.out.println(trozo);
 
