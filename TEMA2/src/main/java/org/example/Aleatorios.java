@@ -9,7 +9,6 @@ public class Aleatorios {
         Random aleatorio = new Random();
 
         int numero = aleatorio.nextInt(2)+1;
-
         System.out.println(numero);
 
     }
