@@ -84,22 +84,47 @@ public class Vectores {
         Scanner teclado = new Scanner(System.in);
         int num[] = new int[25];
 
-        for (int i = 0; i<num.length-1;i++){
+
+        for (int i = 0; i<num.length;i++){
             num[i] = aleatorio.nextInt(100)+1;
         }
+
+        System.out.println(Arrays.toString(num));
 
         System.out.println("Ingrese un número [0-100]:");
         int numero_usuario = teclado.nextInt();
 
         int contador = 0;
+        int v = 0;
 
-        for (int i = 0; i<num.length-1;i++){
-            if (i==numero_usuario){
+        for (int i = 0; i<num.length;i++){
+            v=num[i];
+            if (v==numero_usuario){
                 contador++;
             }
         }
 
         System.out.println("El número " + numero_usuario + " aparece " + contador + " en el array.");
+
+        System.out.println("---------------------------------------------------");
+
+        int num1 [] = {1,3,4,7,9};
+
+        System.out.println("Array original: " + Arrays.toString(num1));
+
+        System.out.println("Ingrese el índice a eliminar: ");
+        int indice = teclado.nextInt();
+
+        int posicion = 0;
+
+        for (int i = 0; i<num.length; i++){
+            if (i==indice){
+                i=0;
+
+            }
+        }
+
+        System.out.println("Array resultante: ");
 
     }
 }
