@@ -23,11 +23,9 @@ public class BATERIA1EJ3 {
         int numero_usuario = teclado.nextInt();
 
         int contador = 0;
-        int v = 0;
 
         for (int i = 0; i<num.length;i++){
-            v=num[i];
-            if (v==numero_usuario){
+            if (num[i]==numero_usuario){
                 contador++;
             }
         }
@@ -36,3 +34,4 @@ public class BATERIA1EJ3 {
 
     }
 }
+
