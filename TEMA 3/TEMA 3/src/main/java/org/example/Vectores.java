@@ -54,6 +54,13 @@ public class Vectores {
 
         System.out.println("---------------------------------------------------");
 
+        String cadena = "MADRID,BARÇA,VALENCIA,ELCHE,HERCULES,MUTXAMIEL";
+        String equipos [] = cadena.split(",");
+
+        System.out.println(Arrays.toString(equipos));
+
+        System.out.println("---------------------------------------------------");
+
         Random aleatorio = new Random();
         int numeros [] = new int[8];
         int sum = 0;
