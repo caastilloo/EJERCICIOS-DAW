@@ -11,109 +11,99 @@ public class PRACTICASAMURAIS {
         Scanner teclado = new Scanner(System.in);
         Random aleatorio = new Random();
 
-        boolean igual30 = false;
+        int equipo1 [] = new int[7];
+        int equipo2 [] = new int[7];
 
-        System.out.println("EQUIPO 1:");
 
-        do {
+        for (int i = 1; i <= 2 ; i++) {
 
-            System.out.println("> Introduce la potencia de los samurais: ");
-            String equipo1 = teclado.nextLine();
+            boolean igual30 = false;
+            int [] equipo_actual;
 
-            String vector_equipo1 [] = equipo1.split(" ");
-
-            int suma = 0;
-
-            for (int i = 0; i < vector_equipo1.length; i++) {
-                int numero = Integer.parseInt(vector_equipo1[i]);
-                suma+=numero;
+            if (i==1){
+                equipo_actual=equipo1;
+            }else{
+                equipo_actual=equipo2;
             }
 
-            if (suma!=30){
-                System.out.println("ERROR. La potencia total no suma 30");
-                igual30=false;
-            }else {
-                System.out.println("Equipo completado.");
-                igual30=true;
-            }
+            do {
 
-        } while (igual30=true);
+                System.out.println("EQUPO " + i + ":");
+                System.out.println("> Introduce la potencia de los samurais: ");
+                String numeros = teclado.nextLine();
+                String numeros_vector [] = numeros.split(" ");
 
+                if (numeros_vector.length != 7){
+                    System.out.println("Debes introducir 7 numeros en la potencia");
+                    continue;
+                }
 
-        System.out.println("EQUIPO 2:");
+                int suma = 0;
 
-        do {
+                for (int e = 0; e < numeros_vector.length; e++) {
+                    int numero = Integer.parseInt(numeros_vector[e]);
+                    equipo_actual[e]=numero;
+                    suma += equipo_actual[e];
+                }
 
-            System.out.println("> Introduce la potencia de los samurais: ");
-            String equipo2 = teclado.nextLine();
+                if (suma==30){
+                    System.out.println("Equipo completado.");
+                    igual30=true;
+                }else {
+                    System.out.println("ERROR. La potencia total no suma 30");
+                }
 
-            String vector_equipo2 [] = equipo2.split(" ");
-
-            int suma = 0;
-
-            for (int i = 0; i < vector_equipo2.length; i++) {
-                int numero = Integer.parseInt(vector_equipo2[i]);
-                suma+=numero;
-            }
-
-            if (suma!=30){
-                System.out.println("ERROR. La potencia total no suma 30");
-                igual30=false;
-            }else {
-                System.out.println("Equipo completado.");
-                igual30=true;
-            }
-
-        }while(igual30==false);
-
-
-        int samurai_inicial = aleatorio.nextInt(7)+1;
+            } while (!igual30);
+        }
 
         System.out.println("¡Empieza la batalla!");
-        System.out.println("La batalla inicia con el Samurai " + samurai_inicial + ".");
+        int samurai = aleatorio.nextInt(7)+1;
+        System.out.println("La batalla inicia con el Samurai " + samurai + ".");
+
+        int contador_equipo1 = 0;
+        int contador_equipo2 = 0;
+
+        int posicion = samurai-1;
+
+        for (int j = 1; j <= 7 ; j++) {
+            int numero_equipo1 = equipo1[posicion];
+            int numero_equipo2 = equipo2[posicion];
+
+            if (numero_equipo1>numero_equipo2){
+                System.out.println("Samurai " + (posicion+1) + ". Gana Equipo 1 " + numero_equipo1 + " vs " + numero_equipo2);
+                equipo2[posicion]=0;
+                contador_equipo2++;
+            } else if (numero_equipo1<numero_equipo2) {
+                System.out.println("Samurai " + (posicion+1) + ". Gana Equipo 2 " + numero_equipo1 + " vs " + numero_equipo2);
+                equipo1[posicion]=0;
+                contador_equipo1++;
+            }else {
+                System.out.println("Empate. Ambos equipos mueren. " + numero_equipo1 + " vs " + numero_equipo2);
+                equipo1[posicion]=0;
+                equipo2[posicion]=0;
+                contador_equipo1++;
+                contador_equipo2++;
+            }
 
 
-        for (int i = 0; i < 7; i++) {
+            if (contador_equipo1>3){
+                System.out.println("!Equipo 2 GANA! Equipo 1 ha tenido " + contador_equipo1 + " bajas.");
+                break;
+            }
+
+            if (contador_equipo2>3){
+                System.out.println("!Equipo 1 GANA! Equipo 2 ha tenido " + contador_equipo2 + " bajas.");
+                break;
+            }
+
+            posicion++;
+            if (posicion==7){
+                posicion=0;
+            }
+
 
         }
 
-
-
-
-
-
-
-//        System.out.println(vector_equipo1[0]);
-//        int numero1 = Integer.parseInt(vector_equipo1[0]);
-//        System.out.println(numero1);
-
-
-//        do {
-//
-//            System.out.println("> Introduce la potencia de los samurais: ");
-//            String equipo2 = teclado.nextLine();
-//
-//            String vector_equipo2 [] = equipo2.split(" ");
-//
-//            int suma = 0;
-//
-//            for (int i = 0; i < vector_equipo2.length; i++) {
-//                int numero = Integer.parseInt(vector_equipo2[i]);
-//                suma+=numero;
-//            }
-//
-//            if (suma!=30){
-//                System.out.println("ERROR. La potencia total no suma 30");
-//                igual30=false;
-//            }else {
-//                System.out.println("Equipo completado.");
-//                igual30=true;
-//            }
-//
-//        }while(igual30==false);
-
-
-
-
     }
 }
+
