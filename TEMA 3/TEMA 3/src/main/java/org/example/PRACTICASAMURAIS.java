@@ -106,10 +106,7 @@ public class PRACTICASAMURAIS {
             if (contador_equipo1>3){
                 System.out.println("!Equipo 2 GANA! Equipo 1 ha tenido " + contador_equipo1 + " bajas.");
                 break; //Salimos directamente del bucle
-            }
-
-            //Si el contador de muertes del equipo 2 es mayor a 3 gana directamente el equipo 1
-            if (contador_equipo2>3){
+            }else if (contador_equipo2>3){ //Si el contador de muertes del equipo 2 es mayor a 3 gana directamente el equipo 1
                 System.out.println("!Equipo 1 GANA! Equipo 2 ha tenido " + contador_equipo2 + " bajas.");
                 break; //Salimos directamente del bucle
             }
@@ -122,6 +119,13 @@ public class PRACTICASAMURAIS {
 
         }
 
+
     }
 }
 
+
+
+//Si empatan los dos equipos sera un empate
+//        if (contador_equipo1 <= 3 && contador_equipo2 <= 3) {
+//            System.out.println("!EMPATE!. El Equipo 1 ha tenido " + contador_equipo1 + " y el Equipo 2 ha tenido " + contador_equipo2 + ".");
+//        }
