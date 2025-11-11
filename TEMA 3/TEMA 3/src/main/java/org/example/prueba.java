@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class prueba {
 
-    public static void main(String[] args) {
+    public static void main(){
 
         Scanner teclado = new Scanner(System.in);
         Random aleatorio = new Random();
@@ -14,11 +14,11 @@ public class prueba {
         int[] equipo1 = new int[7];
         int[] equipo2 = new int[7];
 
-        // Este bucle pide los dos equipos, uno tras otro
+        //bucle que pide los dos equipos uuno tras otro
         for (int e = 1; e <= 2; e++) {
 
             boolean sumaCorrecta = false;
-            int[] equipoActual; // aquí guardamos el equipo que estamos completando
+            int[] equipoActual; // guardamos el equipo que estamos completando
 
             if (e == 1) {
                 equipoActual = equipo1;
@@ -45,18 +45,18 @@ public class prueba {
 
                 if (suma == 30) {
                     sumaCorrecta = true;
-                    System.out.println("Equipo completado correctamente.\n");
+                    System.out.println("Equipo completado correctamente.");
                 } else {
-                    System.out.println("ERROR. La potencia total no suma 30.\n");
+                    System.out.println("ERROR. La potencia total no suma 30.");
                 }
 
             } while (!sumaCorrecta);
         }
 
-        // Mostramos ambos equipos
-        System.out.println("Equipo 1: " + Arrays.toString(equipo1));
-        System.out.println("Equipo 2: " + Arrays.toString(equipo2));
 
-        // Aquí haremos la batalla después
+//        System.out.println("Equipo 1: " + Arrays.toString(equipo1));
+//        System.out.println("Equipo 2: " + Arrays.toString(equipo2));
+
+
     }
 }
