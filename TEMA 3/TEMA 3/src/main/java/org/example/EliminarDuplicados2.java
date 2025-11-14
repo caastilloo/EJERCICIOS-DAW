@@ -22,22 +22,6 @@ public class EliminarDuplicados2 {
         }
 
         System.out.println(Arrays.toString(auxiliar));
-
-        int limpio [] = new int[contador];
-
-        int j = 0;
-
-        for (int i = 0; i < auxiliar.length; i++) {
-
-            if (auxiliar[i]!=0){
-                limpio[j] = auxiliar[i];
-                j++;
-            }
-
-        }
-
-        System.out.println(Arrays.toString(limpio));
-
-
+        
     }
 }
