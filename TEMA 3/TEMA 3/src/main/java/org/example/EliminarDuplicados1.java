@@ -6,8 +6,6 @@ public class EliminarDuplicados1 {
 
     static void main() {
 
-        //MODO1
-
         int vector [] = {1,2,2,3,4,4,4,5,5,6}; //Vector original
         int auxiliar [] = new int[vector.length]; //Vector auxiliar
 
