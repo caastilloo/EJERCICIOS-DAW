@@ -22,6 +22,6 @@ public class EliminarDuplicados2 {
         }
 
         System.out.println(Arrays.toString(auxiliar));
-        
+
     }
 }
