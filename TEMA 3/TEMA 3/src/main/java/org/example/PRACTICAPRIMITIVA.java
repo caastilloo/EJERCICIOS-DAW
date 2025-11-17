@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -7,22 +8,23 @@ public class PRACTICAPRIMITIVA {
 
     static void main() {
 
-        Scanner teclado =new Scanner(System.in);
+        Scanner teclado = new Scanner(System.in);
         Random aleatorio = new Random();
 
-        boolean repetir= false;
+        System.out.println("Introduce los datos de tu boleto: ");
+        String boleto = teclado.nextLine();
 
-        do {
-            System.out.println("Introduce los datos de tu boleto: ");
-            String boleto = teclado.nextLine();
+        boolean comprobar = boleto.matches("\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}/\\d{1,2}");
 
-            boolean comprobar = boleto.matches("\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}/\\d{1,2}");
+        if (comprobar==false){
+            return;
+        }
 
-            if (comprobar==true){
-                break;
-            }
+        String boleto_vector [] = boleto.split("[-/]");
+        System.out.println(Arrays.toString(boleto_vector));
 
-        }while (repetir==false);
+
+
 
 
 
