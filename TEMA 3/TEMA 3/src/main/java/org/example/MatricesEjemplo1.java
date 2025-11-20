@@ -38,6 +38,13 @@ public class MatricesEjemplo1 {
             }
         }
 
+        System.out.println();
+
+        for (int i = 0; i < matriz.length; i++) {
+            //length-1 podemos hacer una variable (ultima posicion/último) para no liarnos
+            System.out.print(matriz[i][matriz.length-1-i] + " ");
+        }
+
 
 
 
