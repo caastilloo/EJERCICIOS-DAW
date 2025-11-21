@@ -18,7 +18,7 @@ public class SpaceInvaders {
 
             String fila[] = teclado.next().split("");
 
-            if (fila.length== matriz.length){
+            if (fila.length== matriz[i].length){
                 for (int j = 0; j < matriz[i].length; j++) {
                     matriz[i][j] = fila[j];
                 }
