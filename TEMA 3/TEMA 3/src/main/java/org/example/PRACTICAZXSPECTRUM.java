@@ -28,11 +28,27 @@ public class PRACTICAZXSPECTRUM {
             String color[] = teclado.next().split("");
 
             if (color.length==matriz[i].length){
+
+                boolean rellenar = true;
+
                 for (int j = 0; j < matriz[i].length; j++) {
 
-                    matriz[i][j] = color[j];
-
+                    if (!color[j].matches("[A-O]")){
+                        System.out.println("Has introducido un pixel incorrecto [A-O]");
+                        rellenar = false;
+                        break;
+                    }
                 }
+
+                if (!rellenar){
+                    i--;
+                    continue;
+                }
+
+                for (int j = 0; j < matriz[i].length; j++) {
+                    matriz[i][j] = color[j];
+                }
+
             }else {
                 System.out.println("El tamaño es incorrecto...");
                 i--;
@@ -42,7 +58,9 @@ public class PRACTICAZXSPECTRUM {
         for (String fila[] : matriz){
             System.out.println(Arrays.toString(fila));
         }
-        
+
+
+
         String validador_bloque1 = "";
         int contador = 1;
         // FILAS
@@ -72,7 +90,14 @@ public class PRACTICAZXSPECTRUM {
             }
         }
 
-        if (contador<=2 && contador2<=2){
+        boolean compatible = true;
+
+        for (int i = 0; i < ; i++) {
+            
+        }
+        
+        
+        if (compatible){
             System.out.println("Es compatible con ZX Spectrum");
         }else {
             System.out.println("No es compatible con ZX Spectrum");
