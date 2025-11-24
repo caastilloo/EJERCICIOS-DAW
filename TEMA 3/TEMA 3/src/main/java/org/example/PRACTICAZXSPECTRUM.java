@@ -92,11 +92,30 @@ public class PRACTICAZXSPECTRUM {
 
         boolean compatible = true;
 
-        for (int i = 0; i < ; i++) {
-            
+        for (int i = 0; i < matriz.length; i++) {
+
+            for (int j = 0; j < matriz[i].length; j++) {
+                
+                String colores = "";
+
+                for (int k = 0; k < i; k++) {
+                    for (int l = 0; l < j; l++) {
+
+                        String letra = matriz[i][j];
+
+                        if (!colores.contains(letra)){
+                            colores += letra;
+                        }
+
+                        if (colores.length() > 2){
+                            compatible = false;
+                        }
+
+                    }
+                }
+            }
         }
-        
-        
+
         if (compatible){
             System.out.println("Es compatible con ZX Spectrum");
         }else {
