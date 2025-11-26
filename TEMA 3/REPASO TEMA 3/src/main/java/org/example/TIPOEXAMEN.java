@@ -9,7 +9,7 @@ public class TIPOEXAMEN {
 
         Random aleatorio = new Random();
 
-        int vector[] = new int[20];
+        int vector[] = new int[25];
 
         for (int i = 0; i < vector.length; i++) {
             vector[i]= aleatorio.nextInt(100)+1;
