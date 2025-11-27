@@ -126,42 +126,5 @@ public class TIPOEXAMEN {
         }
 
 
-
-
-
-
-
-
-
-
-//        System.out.println("Fila 2:");
-//        String fila2 [] = teclado.next().split("-");
-//
-//        System.out.println("Fila 3:");
-//        String fila3 = teclado.next().split(" ");
-//
-//        if (!fila.matches("\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}") );
-
-
-
-
-
-
-
-
-
     }
 }
-
-
-
-
-//        int vector[] = new int[25];
-//
-//        for (int i = 0; i < vector.length; i++) {
-//            vector[i]= aleatorio.nextInt(100)+1;
-//        }
-//
-//        System.out.println(Arrays.toString(vector));
-//        int array_sinduplicados [] = Arrays.stream(vector).distinct().toArray();
-//        System.out.println(Arrays.toString(array_sinduplicados));
