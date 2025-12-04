@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Scanner;
 
-public class Bateria1Ejercicio2 {
+public class BAT1EJ2 {
 
     static void main() {
 

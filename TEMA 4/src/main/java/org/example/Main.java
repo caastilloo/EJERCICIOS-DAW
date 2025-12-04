@@ -35,7 +35,7 @@ public class Main {
         System.out.println();
     }
 
-    //varargs -> ...
+    //varargs -> ... (Sabes que vas a recibir numeros pero no sabes cuantos)
     public static void varios(String palabra, int...num){ //el varargs siempre al final, int...num, String palabra -> NO
 
         for (int i = 0; i < num.length; i++) {
