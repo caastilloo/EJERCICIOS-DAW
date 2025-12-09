@@ -2,6 +2,10 @@ package org.example;
 
 import java.util.Scanner;
 
+/**
+ * @author Jose
+ * @version 1.0
+ */
 public class BAT1EJ3 {
 
     static void main() {
@@ -18,6 +22,13 @@ public class BAT1EJ3 {
 
     }
 
+    /**
+     * @author Jose
+     * @version 1.0
+     * Método para pasar a mayúsculas una cadena
+     * @param cadena - de tipo String para convertirla en mayúsculas
+     * @return - devuelve la cadena en mayúsculas
+     */
     public static String mayusculas (String cadena){
 
         return cadena.toUpperCase();
