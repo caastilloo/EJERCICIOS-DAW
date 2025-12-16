@@ -3,71 +3,39 @@ package org.example;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class ModoProgramaME { // cambio de repositorio, importado de repositorio incorrecto
+public class ModoProgramaME {
 
     static Scanner teclado = new Scanner(System.in) ;
-    static int numero_matriz;
 
     public static void main(String[] args) {
 
-        while(casoDePrueba()){
-
-//            for (String filas[] : matriz){
-//                System.out.println(Arrays.toString(filas));
-//            }
-
-        }
+        while(casoDePrueba())
+            ;
     }
 
     public static boolean casoDePrueba() {
 
         int numero_matriz = teclado.nextInt();
-        String matriz_original [][] = new String[numero_matriz][numero_matriz];
 
-        if (numero_matriz<0 && numero_matriz>=50){
-            return false;
-        }else {
+        int matriz_original [][] = new int[numero_matriz][numero_matriz];
 
-            for (int i = 0; i < matriz_original.length; i++) {
+        for (int i = 0; i < numero_matriz; i++) {
+            for (int j = 0; j < numero_matriz; j++) {
 
-                String cadena [] =teclado.nextLine().split(" ");
+                int valor = teclado.nextInt();
 
-                for (int j = 0; j < matriz_original[i].length; j++) {
+                //crear dos variables para saber si es arriba o abajo
 
-                    matriz_original[i][j] = cadena[i];
-
+                if(i>j && valor != 0){
+                    // superior falso
+                } else if (i>j && valor != 0) {
+                    // inferior falso
                 }
             }
 
-            for (String fil[] : matriz_original){
-                System.out.println(Arrays.toString(fil));
-            }
+            // imprimir si o no
 
-
-//            String cadena [] = teclado.nextLine().split(" ");
-
-//            int aux = 0;
-//            for (int i = 0; i < matriz.length; i++) {
-//                for (int j = 0; j < matriz[i].length; j++) {
-//
-//                    matriz[i][j] = teclado.nextLine();
-//
-//                }
-//            }
-
+        }
             return true;
         }
-
-//        if (filas<0 && filas<=50)
-//        return false;
-//    else {
-//            // CÓDIGO PRINCIPAL AQUÍ
-//            // Procesa un único caso leyendo con
-//            // in.next*()
-//            return true;
-//        }
-
-
-
-
 }
