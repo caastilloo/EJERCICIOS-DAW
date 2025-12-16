@@ -4,7 +4,7 @@ public class ModoBonito {
 
     static void main() {
 
-        System.out.println("");
+        System.out.println("*** BIENVENIDO A LA VALIDACIÓN DE MATRICES ***");
 
 
 

@@ -17,6 +17,10 @@ public class ModoProgramaME {
 
         int numero_matriz = teclado.nextInt();
 
+        if (numero_matriz == 0){
+            return false;
+        }
+
         int matriz_original [][] = new int[numero_matriz][numero_matriz];
 
         boolean arriba = true;
@@ -31,22 +35,16 @@ public class ModoProgramaME {
                     arriba = false;
                 }
 
-                if (i>j && valor != 0){
+                if (i<j && valor != 0){
                     abajo = false;
                 }
-
-//                if(i>j && valor != 0){
-//                    arriba = false;
-//                } else if (i>j && valor != 0) {
-//                    abajo = false;
-//                }
             }
         }
 
             if (arriba || abajo){
-                System.out.println("Si");
+                System.out.println("SI");
             }else{
-                System.out.println("No");
+                System.out.println("NO");
             }
 
             return true;
