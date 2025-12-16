@@ -19,23 +19,36 @@ public class ModoProgramaME {
 
         int matriz_original [][] = new int[numero_matriz][numero_matriz];
 
+        boolean arriba = true;
+        boolean abajo = true;
+
         for (int i = 0; i < numero_matriz; i++) {
             for (int j = 0; j < numero_matriz; j++) {
 
                 int valor = teclado.nextInt();
 
-                //crear dos variables para saber si es arriba o abajo
-
-                if(i>j && valor != 0){
-                    // superior falso
-                } else if (i>j && valor != 0) {
-                    // inferior falso
+                if (i>j && valor != 0){
+                    arriba = false;
                 }
+
+                if (i>j && valor != 0){
+                    abajo = false;
+                }
+
+//                if(i>j && valor != 0){
+//                    arriba = false;
+//                } else if (i>j && valor != 0) {
+//                    abajo = false;
+//                }
+            }
+        }
+
+            if (arriba || abajo){
+                System.out.println("Si");
+            }else{
+                System.out.println("No");
             }
 
-            // imprimir si o no
-
-        }
             return true;
         }
 }
