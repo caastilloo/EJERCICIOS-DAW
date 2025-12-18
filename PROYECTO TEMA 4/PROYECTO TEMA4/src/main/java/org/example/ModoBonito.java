@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class ModoBonito {
 
+    static Scanner teclado = new Scanner(System.in);
+
     static void main() {
 
         introduccion();
@@ -62,7 +64,6 @@ public class ModoBonito {
 
     public static void ejecutar(){
 
-        Scanner teclado = new Scanner(System.in);
         boolean salir = false;
 
         while (!salir){
@@ -72,7 +73,7 @@ public class ModoBonito {
 
             switch (opcion){
                 case '1':
-                    procesarMatriz(teclado);
+                    procesarMatriz();
                     break;
                 case '2':
                     System.out.println("Saliendo del programa ...");
@@ -85,13 +86,13 @@ public class ModoBonito {
 
     }
 
-    public static int[][] leerMatriz (Scanner teclado, int n){
+    public static int[][] leerMatriz (int numero){
 
-        int matriz [][] = new int[n][n];
+        int matriz [][] = new int[numero][numero];
 
         System.out.println("Introduce los valores de la matriz:");
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+        for (int i = 0; i < numero; i++) {
+            for (int j = 0; j < numero; j++) {
                 matriz[i][j] = teclado.nextInt();
             }
         }
@@ -105,13 +106,15 @@ public class ModoBonito {
         return matriz;
     }
 
-    public static void procesarMatriz(Scanner teclado){
+    public static void procesarMatriz(){
+        Scanner teclado = new Scanner(System.in);
+
         System.out.println("----------------------------------------------");
 
         System.out.println("Introduce el tamaño de la matriz: ");
-        int n = teclado.nextInt();
+        int numero = teclado.nextInt();
 
-        int matriz [][] = leerMatriz(teclado, n);
+        int matriz [][] = leerMatriz(numero);
 
         boolean resultado = comprobarTriangular(matriz);
 
