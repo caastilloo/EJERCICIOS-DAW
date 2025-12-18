@@ -3,11 +3,24 @@ package org.example;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * @author Jose
+ * @version 1.0
+ * Clase principal del programa que permite
+ * comprobar si una matriz es triangular superior o inferior
+ */
 public class ModoBonito {
 
     static Scanner teclado = new Scanner(System.in);
 
-    static void main() {
+    /**
+     * @author Jose
+     * @version 1.0
+     * Metodo principal del programa
+     * Se encarga de iniciar la ejecución llamando
+     * a los metodos de introduccion, ejemploss y ejecucion
+     */
+    static void main(String[] args) {
 
         introduccion();
         ejemplos();
@@ -15,6 +28,12 @@ public class ModoBonito {
 
     }
 
+    /**
+     * @author Jose
+     * @version 1.0
+     * Metodo que muestra por pantalla la introducción
+     * y una breve explicación del programa.
+     */
     public static void introduccion(){
         System.out.println("=============================================");
         System.out.println("      PROGRAMA DE MATRICES TRIANGULARES    ");
@@ -25,6 +44,11 @@ public class ModoBonito {
         System.out.println();
     }
 
+    /**
+     * @author Jose
+     * @version 1.0
+     * Metodo que muestra ejemplos de matrices triangulares
+     */
     public static void ejemplos(){
         System.out.println("----------------- EJEMPLOS -------------------");
 
@@ -53,6 +77,12 @@ public class ModoBonito {
         System.out.println("----------------------------------------------");
     }
 
+    /**
+     * @author Jose
+     * @version 1.0
+     * Metodo que muestra el menu del programa
+     * con las opciones disponibles
+     */
     public static void menu(){
         System.out.println();
 
@@ -62,6 +92,13 @@ public class ModoBonito {
         System.out.print("-> Elige un opción: ");
     }
 
+    /**
+     * @author Jose
+     * @version 1.0
+     * Metodo principal del programa
+     * Muestra el menu, lee la opcion del usuario y ejecuta algo
+     * dependiendo de lo que elija el usuario
+     */
     public static void ejecutar(){
 
         boolean salir = false;
@@ -86,6 +123,14 @@ public class ModoBonito {
 
     }
 
+    /**
+     * @author Jose
+     * @version 1.0
+     * Metodo que lee una matriz desde teclado
+     *
+     * @param numero - para saber el tamaño de la matriz
+     * @return devuelve la matriz introducidda por el usuario
+     */
     public static int[][] leerMatriz (int numero){
 
         int matriz [][] = new int[numero][numero];
@@ -106,6 +151,12 @@ public class ModoBonito {
         return matriz;
     }
 
+    /**
+     * @author Jose
+     * @version 1.0
+     * Metodo que hace la lectura de los datos introducidos por el
+     * usuario y llama al metodo comprobacion y muestra el resultado
+     */
     public static void procesarMatriz(){
         Scanner teclado = new Scanner(System.in);
 
@@ -128,6 +179,15 @@ public class ModoBonito {
         System.out.println("----------------------------------------------");
     }
 
+    /**
+     * @author Jose
+     * @version 1.0
+     * Metodo que comprueba si una matriz es triangular superior
+     * o triangular inferior
+     *
+     * @param matriz - matriz a comprobar
+     * @return devuelve true si es triangular y falso si no lo es
+     */
     public static boolean comprobarTriangular (int [][] matriz){
 
         boolean superior = true;
