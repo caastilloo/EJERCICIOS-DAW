@@ -165,7 +165,19 @@ public class ModoBonito {
         System.out.println("Introduce el tamaño de la matriz: ");
         int numero = teclado.nextInt();
 
-        int matriz [][] = leerMatriz(numero);
+        int[][] matriz = new int[numero][numero];
+
+        System.out.println("Introduce los valores de la matriz:");
+        for (int i = 0; i < numero; i++) {
+            for (int j = 0; j < numero; j++) {
+                matriz[i][j] = teclado.nextInt();
+            }
+        }
+
+        System.out.println("Tu matriz:");
+        for (int[] fila : matriz) {
+            System.out.println(Arrays.toString(fila));
+        }
 
         boolean resultado = comprobarTriangular(matriz);
 

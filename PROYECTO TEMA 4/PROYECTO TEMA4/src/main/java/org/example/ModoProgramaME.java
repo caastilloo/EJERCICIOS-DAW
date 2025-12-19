@@ -5,23 +5,22 @@ import java.util.Scanner;
 
 public class ModoProgramaME {
 
-    static Scanner teclado = new Scanner(System.in) ;
+    static Scanner teclado = new Scanner(System.in);
 
     public static void main(String[] args) {
 
-        while(casoDePrueba())
+        while (casoDePrueba()) {
             ;
+        }
     }
 
     public static boolean casoDePrueba() {
 
         int numero_matriz = teclado.nextInt();
 
-        if (numero_matriz == 0){
+        if (numero_matriz == 0) {
             return false;
         }
-
-        int matriz_original [][] = new int[numero_matriz][numero_matriz];
 
         boolean arriba = true;
         boolean abajo = true;
@@ -31,22 +30,22 @@ public class ModoProgramaME {
 
                 int valor = teclado.nextInt();
 
-                if (i>j && valor != 0){
+                if (i > j && valor != 0) {
                     arriba = false;
                 }
 
-                if (i<j && valor != 0){
+                if (i < j && valor != 0) {
                     abajo = false;
                 }
             }
         }
 
-            if (arriba || abajo){
-                System.out.println("SI");
-            }else{
-                System.out.println("NO");
-            }
-
-            return true;
+        if (arriba || abajo) {
+            System.out.println("SI");
+        } else {
+            System.out.println("NO");
         }
+
+        return true;
+    }
 }
