@@ -131,25 +131,6 @@ public class ModoBonito {
      * @param numero - para saber el tamaño de la matriz
      * @return devuelve la matriz introducidda por el usuario
      */
-    public static int[][] leerMatriz (int numero){
-
-        int matriz [][] = new int[numero][numero];
-
-        System.out.println("Introduce los valores de la matriz:");
-        for (int i = 0; i < numero; i++) {
-            for (int j = 0; j < numero; j++) {
-                matriz[i][j] = teclado.nextInt();
-            }
-        }
-
-        System.out.println("----------------------------------------------");
-        System.out.println("Tu matriz:");
-        for (int matr[] : matriz){
-            System.out.println(Arrays.toString(matr));
-        }
-
-        return matriz;
-    }
 
     /**
      * @author Jose
