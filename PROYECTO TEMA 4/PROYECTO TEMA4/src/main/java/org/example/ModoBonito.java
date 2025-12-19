@@ -20,7 +20,7 @@ public class ModoBonito {
      * Se encarga de iniciar la ejecución llamando
      * a los metodos de introduccion, ejemploss y ejecucion
      */
-    static void main(String[] args) {
+    public static void main(String[] args) {
 
         introduccion();
         ejemplos();
