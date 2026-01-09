@@ -1,6 +1,6 @@
 package org.example;
 
-public class Recursivdad2 {
+public class Recursividad2 {
 
     static void main() {
 
