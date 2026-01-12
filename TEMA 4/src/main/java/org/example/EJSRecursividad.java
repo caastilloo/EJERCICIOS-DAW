@@ -72,8 +72,14 @@ public class EJSRecursividad {
                 System.out.println();
 
             case 4:
+                System.out.println("Introduce un numero: ");
+                int comprobar_numero_binario = teclado.nextInt();
+                System.out.println(ej4(comprobar_numero_binario));;
 
             case 5:
+                System.out.println("Introduce un numero: ");
+                int obtener_numero_binario = teclado.nextInt();
+                System.out.println(ej5(obtener_numero_binario));
 
             case 6:
 
@@ -141,18 +147,28 @@ public class EJSRecursividad {
 
     }
 
-    public static boolean ej4(int n) {
-        if (n < 0) return false;
-        if (n < 10) return (n == 0 || n == 1);
-        int ultimo = n % 10;
-        if (ultimo != 0 && ultimo != 1) return false;
-        return ej4(n / 10);
+    public static boolean ej4(int numero) {
+        if (numero > 9){
+            if (numero % 10 != 0 && numero % 10 != 1){
+                return false;
+            }else{
+                return ej4(numero/10);
+            }
+        }else {
+            if (numero == 0 || numero == 1){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 
-    public static String ej5(int n) {
-        if (n < 0) return "-" + ej5(-n);
-        if (n < 2) return String.valueOf(n);
-        return ej5(n / 2) + (n % 2);
+    public static String ej5(int numero) {
+        if (numero == 0 || numero == 1){
+            return Integer.toString(numero);
+        }else{
+            return ej5(numero/2)+numero%2;
+        }
     }
 
     public static boolean ej6(String palabra) {
