@@ -141,4 +141,48 @@ public class EJSRecursividad {
 
     }
 
+    public static boolean ej4(int n) {
+        if (n < 0) return false;
+        if (n < 10) return (n == 0 || n == 1);
+        int ultimo = n % 10;
+        if (ultimo != 0 && ultimo != 1) return false;
+        return ej4(n / 10);
+    }
+
+    public static String ej5(int n) {
+        if (n < 0) return "-" + ej5(-n);
+        if (n < 2) return String.valueOf(n);
+        return ej5(n / 2) + (n % 2);
+    }
+
+    public static boolean ej6(String palabra) {
+        if (palabra == null) return false;
+        palabra = palabra.toLowerCase();
+
+        if (palabra.length() <= 1) return true;
+
+        // comparamos primer y segundo carácter y recursión con el resto
+        return palabra.charAt(0) <= palabra.charAt(1) && ej6(palabra.substring(1));
+    }
+
+    public static int ej7_mostrarSuma(int n) {
+        if (n <= 0) {
+            System.out.print("N debe ser mayor que 0");
+            return 0;
+        }
+
+        int suma = ej7_imprimeYAcumula(1, n); // imprime "1+2+...+N"
+        System.out.println(" = " + suma);
+        return suma;
+    }
+
+    private static int ej7_imprimeYAcumula(int i, int n) {
+        if (i == n) {
+            System.out.print(i);
+            return i;
+        }
+        System.out.print(i + "+");
+        return i + ej7_imprimeYAcumula(i + 1, n);
+    }
+
 }
