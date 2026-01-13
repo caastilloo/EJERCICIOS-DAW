@@ -38,53 +38,78 @@ public class EJSRecursividad {
 
     public static void opcion(){
 
-        System.out.println();
         System.out.print("-> Introduce una opcion: ");
         int opcion = teclado.nextInt();
 
         switch (opcion){
             case 1:
-                System.out.print("Introduce un numero: ");
+                System.out.print("-> Introduce un numero: ");
                 int numero = teclado.nextInt();
-                System.out.println(ej1(numero));
+                System.out.println("Dígitos: " + ej1(numero));
+                System.out.println();
+
+                break;
 
             case 2:
-                System.out.print("Introduce la base: ");
+                System.out.print("-> Introduce la base: ");
                 int base = teclado.nextInt();
                 System.out.print("Introduce la exponente: ");
                 int exponente = teclado.nextInt();
-                System.out.println(ej2(base, exponente));
+                System.out.println("Resultado: " + ej2(base, exponente));
+                System.out.println();
 
+                break;
 
             case 3:
-                System.out.print("Introduce un numero: ");
+                System.out.print("-> Introduce un numero: ");
                 int numero_invertido = teclado.nextInt();
                 ej3_numero(numero_invertido);
-
                 System.out.println();
 
                 ej3_cadena(frase_char.length-1);
-
                 System.out.println();
 
                 ej3_cadena_sin_vector(frase_char.length-1);
-
                 System.out.println();
 
+                break;
+
             case 4:
-                System.out.println("Introduce un numero: ");
+                System.out.print("-> Introduce un numero: ");
                 int comprobar_numero_binario = teclado.nextInt();
-                System.out.println(ej4(comprobar_numero_binario));;
+                System.out.println("¿Es Binario?: " + ej4(comprobar_numero_binario));
+                System.out.println();
+
+                break;
 
             case 5:
-                System.out.println("Introduce un numero: ");
+                System.out.print("-> Introduce un numero: ");
                 int obtener_numero_binario = teclado.nextInt();
-                System.out.println(ej5(obtener_numero_binario));
+                System.out.println("Binario: " + ej5(obtener_numero_binario));
+                System.out.println();
+
+                break;
 
             case 6:
+                System.out.print("-> Introduce una palabra: ");
+                String palabra = teclado.next();
+                System.out.println("¿Esta ordenada?: " + ej6(palabra));
+                System.out.println();
+
+                break;
 
             case 7:
+                System.out.print("-> Introduce un numero: ");
+                int numero1 = teclado.nextInt();
 
+                int resultado = ej7(numero1);
+                System.out.println(" = " + resultado);
+                System.out.println();
+
+                break;
+
+            default:
+                System.out.println("Opción no válida");
         }
 
     }
@@ -93,6 +118,24 @@ public class EJSRecursividad {
         System.out.println("Elige una opción:");
         System.out.println("  [M] - Volver al menú principal");
         System.out.println("  [X] - Salir");
+        System.out.print("-> Introduce una opcion: ");
+        char opcion = teclado.next().toUpperCase().charAt(0);
+        System.out.println();
+
+        switch (opcion){
+            case 'M':
+                System.out.println();
+                menu();
+                break;
+
+            case 'X':
+                System.out.println("Programa finalizado.");
+                return;
+
+            default:
+                System.out.println("Opción no válida.");
+                menu2();
+        }
     }
 
     public static void borrar() throws IOException, InterruptedException {
@@ -172,33 +215,30 @@ public class EJSRecursividad {
     }
 
     public static boolean ej6(String palabra) {
-        if (palabra == null) return false;
+
         palabra = palabra.toLowerCase();
 
-        if (palabra.length() <= 1) return true;
-
-        // comparamos primer y segundo carácter y recursión con el resto
-        return palabra.charAt(0) <= palabra.charAt(1) && ej6(palabra.substring(1));
-    }
-
-    public static int ej7_mostrarSuma(int n) {
-        if (n <= 0) {
-            System.out.print("N debe ser mayor que 0");
-            return 0;
+        if (palabra.length() <= 1) {
+            return true;
         }
 
-        int suma = ej7_imprimeYAcumula(1, n); // imprime "1+2+...+N"
-        System.out.println(" = " + suma);
-        return suma;
+        if (palabra.charAt(0) > palabra.charAt(1)) {
+            return false;
+        }
+
+        return ej6(palabra.substring(1));
     }
 
-    private static int ej7_imprimeYAcumula(int i, int n) {
-        if (i == n) {
-            System.out.print(i);
-            return i;
+    public static int ej7(int n) {
+
+        if (n == 1) {
+            System.out.print("1");
+            return 1;
         }
-        System.out.print(i + "+");
-        return i + ej7_imprimeYAcumula(i + 1, n);
+
+        int suma = ej7(n - 1);
+        System.out.print("+" + n);
+        return suma + n;
     }
 
 }
