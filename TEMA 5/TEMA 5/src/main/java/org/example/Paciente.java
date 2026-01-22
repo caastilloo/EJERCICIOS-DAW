@@ -22,7 +22,7 @@ public class Paciente {
 
         this.nombre = nombre;
         this.edad = edad;
-        this.dni = generarDNI();
+        setDni(); // Si es la misma linea que en el set llamas directamente al set
         this.sexo = comprobarSexo(sexo);
         this.peso = peso;
         this.altura = altura;
@@ -140,16 +140,12 @@ public class Paciente {
         return dni;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setDni() {
+        dni = generarDNI();
     }
 
     public char getSexo() {
         return sexo;
-    }
-
-    public void setSexo(char sexo) {
-        this.sexo = sexo;
     }
 
     public double getPeso() {
@@ -166,6 +162,13 @@ public class Paciente {
 
     public void setAltura(int altura) {
         this.altura = altura;
+    }
+
+    @Override
+    public String toString(){ // Simempre que imprimas un objeto se lanza el toString (el override hace que no haya que poner el toString)
+
+        return "Paciente [nombre= " + nombre + ", edad= " + edad + ", dni= " + dni + ", sexo= " + sexo + ", peso= " + peso
+                + ", altura= " + altura + "]";
     }
 
 }
