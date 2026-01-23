@@ -9,6 +9,7 @@ public class Estudiante {
     private String curso;
     private int nia;
     private String email;
+    private Libro libro;
 
     public Estudiante(String nombre, String curso, String email){
 
@@ -16,6 +17,7 @@ public class Estudiante {
         this.curso = curso;
         this.email = email;
         nia = ++contadorEstudiantes; // ++ delante -> se actualiza antes de igualar | atras ++ -> se actualiza depes de igualar
+        libro = null;
 
     }
 
@@ -43,6 +45,7 @@ public class Estudiante {
                 ", curso='" + curso + '\'' +
                 ", nia=" + nia +
                 ", email='" + email + '\'' +
+                ", libro='" + libro.getTitulo() +
                 '}';
     }
 
@@ -76,6 +79,14 @@ public class Estudiante {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Libro getLibro() {
+        return libro;
+    }
+
+    public void setLibro(Libro libro) {
+        this.libro = libro;
     }
 
 }

@@ -12,6 +12,7 @@ public class Libro {
     private String autor;
     private String id;
     private boolean disponible;
+    private Estudiante estudiantePrestado;
 
     public Libro(String titulo, String autor){
         this.titulo = titulo;
@@ -20,6 +21,7 @@ public class Libro {
         cantidadLibros++;
         librosDisponibles++;
         id = calcularId();
+        estudiantePrestado=null;
     }
 
     private String calcularId(){
@@ -27,24 +29,28 @@ public class Libro {
         return SIGLAS_ID + cantidadLibros;
     }
 
-    public void prestar(){
+    public void prestar(Estudiante estudiante){
 
         if (disponible) {
             disponible = false;
-            System.out.println("El libro '" + titulo + "' ha sido prestado con éxito.");
+            System.out.println("El libro '" + titulo + "' ha sido prestado con éxito a " + estudiante.getNombre() + " del curso " + estudiante.getCurso() + ".");
             librosDisponibles--;
+            estudiantePrestado=estudiante;
+            estudiantePrestado.setLibro(this);
         }else {
             System.out.println("El libro '" + titulo + "' no esta disponible para prestar.");
         }
 
     }
 
-    public void devolver(){
+    public void devolver(Estudiante estudiante){ // revisar
 
         if (!disponible){
             disponible=true;
-            System.out.println("El libro '" + titulo + "' ha sido devuelto con éxito.");
+            System.out.println("El libro '" + titulo + "' ha sido devuelto con éxito por " + estudiante.getNombre() + " del curso " + estudiante.getCurso() + ".");
             librosDisponibles++;
+            estudiantePrestado.setLibro(null);
+            estudiantePrestado=null;
         }else {
             System.out.println("El libro '" + titulo + "' no se puede devolver. Está disponible.");
         }
@@ -70,6 +76,7 @@ public class Libro {
                 ", autor='" + autor + '\'' +
                 ", id='" + id + '\'' +
                 ", disponible=" + disponible +
+                ", estudiante=" + estudiantePrestado +
                 '}';
     }
 
@@ -93,15 +100,19 @@ public class Libro {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public boolean isDisponible() {
         return disponible;
     }
 
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
+    }
+
+    public Estudiante getEstudiantePrestado() {
+        return estudiantePrestado;
+    }
+
+    public void setEstudiantePrestado(Estudiante estudiantePrestado) {
+        this.estudiantePrestado = estudiantePrestado;
     }
 }
