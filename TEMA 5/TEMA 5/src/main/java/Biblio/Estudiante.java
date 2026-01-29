@@ -1,5 +1,7 @@
 package Biblio;
 
+import java.util.ArrayList;
+
 public class Estudiante {
 
     private static int contadorEstudiantes = 0;
@@ -9,7 +11,7 @@ public class Estudiante {
     private String curso;
     private int nia;
     private String email;
-    private Libro libro;
+    private ArrayList<Libro> listaLibro;
 
     public Estudiante(String nombre, String curso, String email){
 
@@ -17,7 +19,7 @@ public class Estudiante {
         this.curso = curso;
         this.email = email;
         nia = ++contadorEstudiantes; // ++ delante -> se actualiza antes de igualar | atras ++ -> se actualiza depes de igualar
-        libro = null;
+        listaLibro = new ArrayList<>();
 
     }
 
@@ -38,15 +40,12 @@ public class Estudiante {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Estudiante{" +
-                "nombre='" + nombre + '\'' +
-                ", curso='" + curso + '\'' +
-                ", nia=" + nia +
-                ", email='" + email + '\'' +
-                ", libro='" + libro.getTitulo() +
-                '}';
+    public void insertarLibro(Libro libro){
+        listaLibro.add(libro);
+    }
+
+    public void borrarLibro(Libro libro){
+        listaLibro.remove(libro);
     }
 
     public int getNia() {
@@ -81,12 +80,22 @@ public class Estudiante {
         this.nombre = nombre;
     }
 
-    public Libro getLibro() {
-        return libro;
+    public ArrayList<Libro> getListaLibros() {
+        return listaLibro;
     }
 
-    public void setLibro(Libro libro) {
-        this.libro = libro;
+    public void setListaLibros(ArrayList<Libro>listaLibro) {
+        this.listaLibro = listaLibro;
+    }
+
+    @Override
+    public String toString() {
+        return "Estudiante{" +
+                "nombre='" + nombre + '\'' +
+                ", curso='" + curso + '\'' +
+                ", nia=" + nia +
+                ", email='" + email + '\'' +
+                '}';
     }
 
 }

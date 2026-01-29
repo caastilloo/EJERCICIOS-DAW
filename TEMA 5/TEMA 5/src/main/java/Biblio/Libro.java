@@ -1,5 +1,7 @@
 package Biblio;
 
+import java.util.ArrayList;
+
 public class Libro {
 
     private static final String SIGLAS_ID = "LIB";
@@ -13,6 +15,7 @@ public class Libro {
     private String id;
     private boolean disponible;
     private Estudiante estudiantePrestado;
+    //    private Editorial editorial;
     private Editorial editorial;
 
     public Libro(String titulo, String autor, Editorial editorial){
@@ -24,6 +27,7 @@ public class Libro {
         id = calcularId();
         estudiantePrestado=null;
         this.editorial = editorial;
+        editorial.añadirLibro(this);
     }
 
     private String calcularId(){
@@ -35,15 +39,15 @@ public class Libro {
 
         Prestamo prestamo = null;
 
-        if (disponible && estudiante.getLibro() == null) {
+        if (disponible && !estudiante.getListaLibros().contains(this)) {
             disponible = false;
             System.out.println("El libro '" + titulo + "' ha sido prestado con éxito a " + estudiante.getNombre() + " del curso " + estudiante.getCurso() + ".");
             librosDisponibles--;
             estudiantePrestado=estudiante;
-            estudiantePrestado.setLibro(this);
+            estudiantePrestado.insertarLibro(this);
             prestamo = new Prestamo(estudiante, this);
 
-        } else if (estudiante.getLibro() != null) {
+        } else if (estudiante.getListaLibros().contains(this)) {
             System.out.println("El estudiante " + estudiante.getNombre() + " ya tiene un libro prestado");
         }else {
             System.out.println("El libro '" + titulo + "' no esta disponible para prestar.");
@@ -59,7 +63,7 @@ public class Libro {
             disponible=true;
             System.out.println("El libro '" + titulo + "' ha sido devuelto con éxito por " + estudiante.getNombre() + " del curso " + estudiante.getCurso() + ".");
             librosDisponibles++;
-            estudiantePrestado.setLibro(null);
+            estudiantePrestado.borrarLibro(this);
             estudiantePrestado=null;
         }else {
             System.out.println("El libro '" + titulo + "' no se puede devolver. Está disponible.");

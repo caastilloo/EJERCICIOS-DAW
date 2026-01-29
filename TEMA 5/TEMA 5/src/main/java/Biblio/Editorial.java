@@ -1,13 +1,17 @@
 package Biblio;
 
+import java.util.ArrayList;
+
 public class Editorial {
 
     private String nombre;
     private String pais;
+    private ArrayList<Libro> librosPublicados;
 
     public Editorial (String nombre, String pais){
         this.nombre = nombre;
         this.pais = pais;
+        librosPublicados = new ArrayList<>();
     }
 
     @Override
@@ -16,6 +20,14 @@ public class Editorial {
                 "nombre='" + nombre + '\'' +
                 ", pais='" + pais + '\'' +
                 '}';
+    }
+
+    public void añadirLibro (Libro libro){
+        librosPublicados.add(libro);
+    }
+
+    public void eliminarLibro (Libro libro){
+        librosPublicados.remove(libro);
     }
 
     public String getNombre() {
@@ -32,6 +44,14 @@ public class Editorial {
 
     public void setPais(String pais) {
         this.pais = pais;
+    }
+
+    public ArrayList<Libro> getLibrosPublicados() {
+        return librosPublicados;
+    }
+
+    public void setLibrosPublicados(ArrayList<Libro> librosPublicados) {
+        this.librosPublicados = librosPublicados;
     }
 
 
