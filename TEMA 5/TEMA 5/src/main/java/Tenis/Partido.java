@@ -1,0 +1,7 @@
+package Tenis;
+
+public class Partido {
+
+
+
+}
