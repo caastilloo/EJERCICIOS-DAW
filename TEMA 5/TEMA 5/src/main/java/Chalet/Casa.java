@@ -10,11 +10,13 @@ public class Casa {
     private String direccion;
     private ArrayList<Habitacion> listaHabitaciones;
     private Propietario propietario;
+    private ArrayList<Electrodomesticos> listaElectrodomesticos;
 
     public Casa (String direccion){
         this.direccion = direccion;
         listaHabitaciones = new ArrayList<>();
         setPropietario();
+        listaElectrodomesticos = new ArrayList<>();
     }
 
     public void crearHabitacion(String nombre, double metros){
@@ -62,6 +64,18 @@ public class Casa {
 //        for (int i = 0; i < listaHabitaciones.size(); i++) {
 //            if (listaHabitaciones.get(i).getNombre())>
 //        }
+
+        return maximo;
+    }
+
+    public Electrodomesticos getHabitacionMasConsumo(){
+        Electrodomesticos maximo = listaElectrodomesticos.get(0);
+
+        for (Electrodomesticos electrodomesticos : listaElectrodomesticos){
+            if (maximo.getConsumo() < electrodomesticos.getConsumo()){
+                maximo = electrodomesticos;
+            }
+        }
 
         return maximo;
     }
