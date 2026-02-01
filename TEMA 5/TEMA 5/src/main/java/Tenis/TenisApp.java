@@ -10,6 +10,12 @@ public class TenisApp {
         System.out.println(j1);
         System.out.println(j2);
 
+        Partido partido = new Partido(j1, j2);
+        partido.insertarSet(6, 4);
+        partido.insertarSet(7, 6);
+
+        System.out.println(partido);
+        partido.mostrarInfoPartido();
 
     }
 }

@@ -29,8 +29,8 @@ public class Jugador {
     @Override
     public String toString() {
         return "Jugador{" +
-                "nombre='" + nombre + '\'' +
-                ", ranking=" + ranking +
+                "NOMBRE ='" + nombre + '\'' +
+                ", RANKING =" + ranking +
                 '}';
     }
 }
