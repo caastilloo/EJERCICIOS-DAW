@@ -13,15 +13,11 @@ public class Set {
     public boolean validarPuntos(){
 
         if (puntosj1 >= 6 && puntosj2>=0){
-<<<<<<< HEAD
-
-=======
             return true;
         } else if (puntosj2 >= 6 && puntosj2 >= 0) {
             return true;
         }else {
             return false;
->>>>>>> 28dba747003819cadf4be83bb54ffdb1c432a745
         }
 
 //        TIE BREAK
@@ -30,8 +26,6 @@ public class Set {
 //        }
 
     }
-
-
 
     public int getPuntosj1() {
         return puntosj1;
