@@ -13,10 +13,25 @@ public class Set {
     public boolean validarPuntos(){
 
         if (puntosj1 >= 6 && puntosj2>=0){
+<<<<<<< HEAD
 
+=======
+            return true;
+        } else if (puntosj2 >= 6 && puntosj2 >= 0) {
+            return true;
+        }else {
+            return false;
+>>>>>>> 28dba747003819cadf4be83bb54ffdb1c432a745
         }
 
+//        TIE BREAK
+//        if (puntosj1 == 7){
+//
+//        }
+
     }
+
+
 
     public int getPuntosj1() {
         return puntosj1;
@@ -37,8 +52,8 @@ public class Set {
     @Override
     public String toString() {
         return "Set{" +
-                "puntosj1=" + puntosj1 +
-                ", puntosj2=" + puntosj2 +
+                "PUNTOS J1=" + puntosj1 +
+                ", PUNTOS J2=" + puntosj2 +
                 '}';
     }
 }

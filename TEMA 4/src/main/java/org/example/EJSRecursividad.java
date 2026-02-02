@@ -53,7 +53,7 @@ public class EJSRecursividad {
             case 2:
                 System.out.print("-> Introduce la base: ");
                 int base = teclado.nextInt();
-                System.out.print("Introduce la exponente: ");
+                System.out.print("-> Introduce la exponente: ");
                 int exponente = teclado.nextInt();
                 System.out.println("Resultado: " + ej2(base, exponente));
                 System.out.println();
@@ -63,14 +63,15 @@ public class EJSRecursividad {
             case 3:
                 System.out.print("-> Introduce un numero: ");
                 int numero_invertido = teclado.nextInt();
+                System.out.print("Del revés: ");
                 ej3_numero(numero_invertido);
                 System.out.println();
 
                 ej3_cadena(frase_char.length-1);
                 System.out.println();
 
-                ej3_cadena_sin_vector(frase_char.length-1);
-                System.out.println();
+//                ej3_cadena_sin_vector(frase_char.length-1);
+//                System.out.println();
 
                 break;
 
