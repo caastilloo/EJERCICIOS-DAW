@@ -13,7 +13,7 @@ public class Set {
     public boolean validarPuntos(){
 
         if (puntosj1 >= 6 && puntosj2>=0){
-            
+
         }
 
     }
