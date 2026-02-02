@@ -9,6 +9,10 @@
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_25" default="true" project-jdk-name="openjdk-25" project-jdk-type="JavaSDK">
+<<<<<<< HEAD
     <output url="file://$PROJECT_DIR$/../.." />
+=======
+    <output url="file://$PROJECT_DIR$/../../comp" />
+>>>>>>> e43d34d (no message)
   </component>
 </project>
