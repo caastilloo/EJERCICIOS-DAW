@@ -1,11 +1,10 @@
 package TipoExamen1;
 
-import java.lang.classfile.attribute.ModuleAttribute;
 import java.time.LocalDate;
 
 public class ProgramaMeLoApp {
 
-    static void main() {
+    public static void main(String[] args) {
 
         Concurso iesmutxamel = new Concurso();
         System.out.println(iesmutxamel);
@@ -37,12 +36,6 @@ public class ProgramaMeLoApp {
 
         maquinistas.calcularPuntuacion();
         triunfitos.calcularPuntuacion();
-
-
-
-
-//        maquinistas.añadirMiembros("Pablo", "Jose", "Alberto");
-//        System.out.println(maquinistas);
 
     }
 

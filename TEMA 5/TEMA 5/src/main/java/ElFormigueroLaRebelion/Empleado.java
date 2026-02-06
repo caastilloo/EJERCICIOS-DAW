@@ -1,5 +1,13 @@
 package ElFormigueroLaRebelion;
 
+/**
+ * Clase que representa a un empleado de un programa de televisión.
+ * Cada empleado tiene un identificador, un nombre y un cargo.
+ * Opcionalmente, puede tener asignado un director.
+ *
+ * @author José
+ * @version 1.0
+ */
 public class Empleado {
 
     private static final String SIGLAS_ID = "EP";
@@ -10,6 +18,13 @@ public class Empleado {
     private String cargo;
     private Empleado director; // Por hacer
 
+    /**
+     * Constructor de la clase Empleado.
+     * Genera automáticamente un identificador para el empleado.
+     *
+     * @param nombre nombre del empleado
+     * @param cargo cargo que desempeña el empleado
+     */
     public Empleado(String nombre, String cargo){
         cantidadLibros++;
         id = generarId();
@@ -18,9 +33,13 @@ public class Empleado {
 //        this.director = director;
     }
 
+    /**
+     * Genera un identificador único para el empleado.
+     *
+     * @return identificador del empleado
+     */
     public String generarId(){
         return SIGLAS_ID + cantidadLibros;
-
     }
 
     public String getId() {
