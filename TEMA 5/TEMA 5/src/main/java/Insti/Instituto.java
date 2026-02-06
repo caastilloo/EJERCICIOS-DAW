@@ -1,20 +1,41 @@
 package Insti;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.ToString;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-@Getter @Setter @ToString
-@AllArgsConstructor
-@NoArgsConstructor
-@RequiredArgsConstructor
+@Getter
+@ToString
 public class Instituto {
 
-    @NonNull
-    private String nombre;
+    private final String nombre;
     private String poblacion;
 
-    public void setPoblacion(String poblacion) {
-        this.poblacion = Objects.requireNonNullElse(poblacion, "ALICANTE");
+    private List<Estudiante> listaEstudiantes = new ArrayList<>();
+    private List<Curso> listaCursos = new ArrayList<>();
+
+    public Instituto(String nombre) {
+        this.nombre = Objects.requireNonNullElse(nombre, "Instituto sin nombre");
+    }
+
+    public void agregarEstudiante(Estudiante estudiante) {
+        if (estudiante != null) {
+            listaEstudiantes.add(estudiante);
+        }
+    }
+
+    public void agregarCurso(Curso curso) {
+        if (curso == null) return;
+
+        for (Curso curso1 : listaCursos) {
+            if (curso1.getNombre().equals(curso.getNombre())
+                    && curso1.getHoras() == curso.getHoras()) {
+                return;
+            }
+        }
+        listaCursos.add(curso);
     }
 }
