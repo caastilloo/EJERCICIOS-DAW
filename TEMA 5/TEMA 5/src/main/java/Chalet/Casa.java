@@ -61,10 +61,6 @@ public class Casa {
             }
         }
 
-//        for (int i = 0; i < listaHabitaciones.size(); i++) {
-//            if (listaHabitaciones.get(i).getNombre())>
-//        }
-
         return maximo;
     }
 
