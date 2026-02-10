@@ -11,10 +11,4 @@ public class Desarrollador extends Empleado{
         System.out.println("Escribiendo código y solucionando bugs.");
     }
 
-//    @Override
-//    public static void realizarTarea(){
-//        System.out.println("Escribiendo código y solucionando bugs.");
-//    }
-//
-
 }
