@@ -1,6 +1,6 @@
 package Restaurante;
 
-public class Persona {
+public abstract class Persona {
 
     private String nombre;
     private String dni;
@@ -29,6 +29,8 @@ public class Persona {
     public void mostrarInfoPersonas(){
         System.out.println("Persona con " + nombre + " y dni " + dni);
     }
+
+    public abstract void accederBanyo();
 
     @Override
     public String toString() {

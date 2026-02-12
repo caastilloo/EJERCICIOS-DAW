@@ -37,6 +37,11 @@ public class Camarero extends Persona{
     }
 
     @Override
+    public void accederBanyo() {
+        System.out.println("El camarero ha dejado de atender para ir al baño. Cubrir.");
+    }
+
+    @Override
     public String toString() {
         return "Camarero{" +
                 "salario=" + salario +

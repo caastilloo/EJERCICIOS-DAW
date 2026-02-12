@@ -44,6 +44,11 @@ public class Encargado extends Persona{
     }
 
     @Override
+    public void accederBanyo() {
+        System.out.println("El encargado deja de supervisar para ir al baño");
+    }
+
+    @Override
     public String toString() {
         return "Encargado{" +
                 "salario=" + salario +
