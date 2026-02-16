@@ -3,6 +3,12 @@ package SistemaPagoEcommerce;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Representa el método de pago mediante Bizum.
+ *
+ * Genera un PIN aleatorio y valida tanto el teléfono como el PIN
+ * antes de permitir el pago.
+ */
 public class Bizum extends MetodoPago{
 
     static Scanner teclado = new Scanner(System.in);
@@ -10,18 +16,35 @@ public class Bizum extends MetodoPago{
     private String telefono;
     private int pin;
 
+    /**
+     * Constructor que recibe el número de teléfono.
+     * Genera automáticamente un PIN aleatorio.
+     *
+     * @param telefono número de teléfono asociado a Bizum
+     */
     public Bizum(String telefono){
         this.telefono = telefono;
         generarPin();
     }
 
+    /**
+     * Procesa el pago mostrando un mensaje de confirmación.
+     *
+     * @param importe cantidad a pagar
+     */
     @Override
     public void procesarPago(double importe) {
         System.out.println("Procesando pago de " + importe + " € con Bizum" );
         System.out.println("Pago aceptado. Muchas gracias.");
     }
 
-    // AÑADIR CONTROL PIN
+    /**
+     * Comprueba que el teléfono tenga 9 dígitos y que el PIN
+     * introducido coincida con el generado.
+     *
+     * @param pin PIN introducido por el usuario
+     * @return true si la validación es correcta, false en caso contrario
+     */
     public boolean validarBizum(int pin){
         System.out.println("Validando Bizum ...");
 
@@ -44,6 +67,10 @@ public class Bizum extends MetodoPago{
 //        }
     }
 
+    /**
+     * Genera un PIN aleatorio de 6 cifras.
+     * Se muestra por pantalla para facilitar las pruebas.
+     */
     private void generarPin(){
         Random aleatorio = new Random();
 

@@ -3,17 +3,37 @@ package SistemaPagoEcommerce;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Clase que simula el funcionamiento de la tienda online.
+ *
+ * Se encarga de interactuar con el usuario, crear el método de pago
+ * seleccionado y realizar las validaciones necesarias antes de procesar
+ * el pago.
+ */
 public class Tienda {
 
     static Scanner teclado = new Scanner(System.in);
     static Random aleatorio = new Random();
 
+    /**
+     * Solicita el importe al usuario y ejecuta el pago utilizando
+     * el método recibido como parámetro.
+     *
+     * Se aplica polimorfismo, ya que se invoca procesarPago()
+     * según el tipo real del objeto.
+     *
+     * @param metodo objeto que hereda de MetodoPago
+     */
     static void realizarPago(MetodoPago metodo){
         System.out.println("Introduce el importe a pagar:");
         double importe = teclado.nextDouble();
         metodo.procesarPago(importe);
     }
 
+    /**
+     * Inicia el proceso de pago preguntando al usuario
+     * qué método desea utilizar.
+     */
     static void iniciarPago(){
         System.out.println("¿Qué método de pago quieres usar? [Bizum, PayPal, Tarjeta]");
         String metodo_cliente = teclado.next().toLowerCase();
@@ -21,6 +41,12 @@ public class Tienda {
 
     }
 
+    /**
+     * Crea el método de pago correspondiente según la opción elegida
+     * por el usuario y realiza las validaciones necesarias.
+     *
+     * @param metodo_cliente nombre del método de pago introducido
+     */
     static void metodoCliente(String metodo_cliente){
 
         switch (metodo_cliente){

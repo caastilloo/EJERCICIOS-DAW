@@ -2,6 +2,12 @@ package SistemaPagoEcommerce;
 
 import java.util.Scanner;
 
+/**
+ * Representa el método de pago mediante PayPal.
+ *
+ * Comprueba que el correo tenga un formato válido y que el
+ * saldo disponible sea suficiente para realizar el pago.
+ */
 public class PayPal extends MetodoPago{
 
     static Scanner teclado = new Scanner(System.in);
@@ -9,16 +15,32 @@ public class PayPal extends MetodoPago{
     private String cuenta;
     private double saldo = 23;
 
+    /**
+     * Constructor que recibe la cuenta de PayPal.
+     *
+     * @param cuenta correo electrónico asociado a la cuenta
+     */
     public PayPal(String cuenta){
         this.cuenta = cuenta;
     }
 
+    /**
+     * Procesa el pago mostrando un mensaje de confirmación.
+     *
+     * @param importe cantidad a pagar
+     */
     @Override
     public void procesarPago(double importe) {
         System.out.println("Procesado pago de " + importe + " con PayPal");
         System.out.println("Pago aceptado. Muchas gracias.");
     }
 
+    /**
+     * Valida el formato del correo y comprueba si hay saldo suficiente.
+     *
+     * @param importe cantidad que se desea pagar
+     * @return true si la validación es correcta, false en caso contrario
+     */
     public boolean validarPayPal(double importe){
         System.out.println("Validando PayPal ...");
 
