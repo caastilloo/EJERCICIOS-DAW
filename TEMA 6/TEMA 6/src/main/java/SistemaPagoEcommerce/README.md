@@ -102,6 +102,24 @@ A continuación se muestra el diagrama UML que representa la arquitectura de cla
 
 ---
 
+## Plan de pruebas
+
+Para garantizar la robustez del sistema, se han llevado a cabo 10 pruebas unitarias y de flujo que cubren todos los escenarios posibles, desde errores de validación hasta transacciones exitosas.
+
+A continuación se muestran las capturas de pantalla de la ejecución del programa:
+
+### Pruebas de ejecucción
+
+|      Pruebas (1-5)       | Pruebas (6-10) |
+|:------------------------:| :---: |
+| ![Prueba 1](img/pr1.png) | ![Prueba 6](img/pr6.png) |
+| ![Prueba 2](img/pr2.png) | ![Prueba 7](img/pr7.png) |
+| ![Prueba 3](img/pr3.png) | ![Prueba 8](img/pr8.png) |
+| ![Prueba 4](img/pr4.png) | ![Prueba 9](img/pr9.png) |
+| ![Prueba 5](img/pr5.png) | ![Prueba 10](img/pr10.png) |
+
+---
+
 ## Conclusión
 
 Este proyecto permite gestionar de forma eficiente un sistema de pagos digital. Gracias al uso de clases abstractas y polimorfismo, el código es limpio y cumple con los principios de escalabilidad, permitiendo añadir nuevas formas de pago en el futuro sin modificar la estructura principal.
