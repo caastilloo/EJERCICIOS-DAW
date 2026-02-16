@@ -19,19 +19,30 @@ public class PayPal extends MetodoPago{
         System.out.println("Pago aceptado. Muchas gracias.");
     }
 
-    public void validarPayPal(){
+    public boolean validarPayPal(double importe){
         System.out.println("Validando PayPal ...");
+
         if (!cuenta.matches("^[A-Za-z0-9+_.-]+@alu.edu.gva.com$")){
             System.out.println("Los datos de tu PayPal no son correctos.");
-        }else {
-            System.out.println("Intoduce el importe a pagar:");
-            int importe = teclado.nextInt();
-            if (importe < saldo){
-                procesarPago(importe);
-            }else {
-                System.out.println("No tiene saldo suficiente para pagar.");
-            }
+            return false;
         }
+
+        if (importe > saldo) {
+            System.out.println("NO tiene saldo suficiente.");
+            return false;
+        }
+
+        return true;
+
+//        else {
+//            System.out.println("Intoduce el importe a pagar:");
+//            int importe = teclado.nextInt();
+//            if (importe < saldo){
+//                procesarPago(importe);
+//            }else {
+//                System.out.println("No tiene saldo suficiente para pagar.");
+//            }
+//        }
     }
 
 

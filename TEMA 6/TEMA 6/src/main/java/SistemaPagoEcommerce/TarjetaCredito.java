@@ -11,7 +11,7 @@ public class TarjetaCredito extends MetodoPago{
 
     public TarjetaCredito(String nro_tarjeta, String tipo){
         this.nro_tarjeta = nro_tarjeta;
-        this.tipo = tipo;
+        this.tipo = tipo.toUpperCase();
     }
 
     @Override
@@ -21,15 +21,19 @@ public class TarjetaCredito extends MetodoPago{
     }
 
     // AÑADIR VALIDACION TIPO
-    public void validarTarjeta(){
+    public boolean validarTarjeta(){
         System.out.println("Validando Tarjeta ...");
+
         if (nro_tarjeta.length()!=16){
             System.out.println("Los datos de tu Tarjeta no son correctos.");
-        }else{
-            System.out.println("Introduce el importe a pagar:");
-            int importe = teclado.nextInt();
-            procesarPago(importe);
+            return false;
         }
+
+        if (!tipo.equals("VISA") && !tipo.equals("MASTERCARD") && !tipo.equals("MAESTRO")){
+            return false;
+        }
+
+        return true;
     }
 
 

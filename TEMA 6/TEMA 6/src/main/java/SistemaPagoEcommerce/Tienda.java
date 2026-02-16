@@ -10,7 +10,7 @@ public class Tienda {
 
     static void realizarPago(MetodoPago metodo){
         System.out.println("Introduce el importe a pagar:");
-        double importe = teclado.nextInt();
+        double importe = teclado.nextDouble();
         metodo.procesarPago(importe);
     }
 
@@ -27,22 +27,34 @@ public class Tienda {
             case "tarjeta":
                 System.out.println("Introduce los datos de tu tarjeta:");
                 String datos_tarj = teclado.next();
+
                 System.out.println("Selecciona el tipo de tarjeta [VISA, MASTERCARD, MAESTRO]:");
                 String tipo = teclado.next();
 
                 TarjetaCredito tarjeta = new TarjetaCredito(datos_tarj, tipo);
-                tarjeta.validarTarjeta();
+                if (tarjeta.validarTarjeta()){
+                    realizarPago(tarjeta);
+                }else {
+                    System.out.println("Los datos de tu tarjeta no son correctos.");
+                }
+
                 break;
 
             case "bizum":
-
                 System.out.println("Introduce tu número de telefono vinculado con Bizum:");
                 String telefono = teclado.next();
+
+                Bizum bizum = new Bizum(telefono);
+
                 System.out.println("Introduce tu PIN:");
                 int pin = teclado.nextInt();
 
-                Bizum bizum = new Bizum(telefono, pin);
-                bizum.validarBizum();
+                if (bizum.validarBizum(pin)){
+                    realizarPago(bizum);
+                }else {
+                    System.out.println("Los datos de tu Bizum no son correctos");
+                }
+
                 break;
 
             case "paypal":
@@ -51,7 +63,15 @@ public class Tienda {
                 String correo = teclado.next();
 
                 PayPal payPal = new PayPal(correo);
-                payPal.validarPayPal();
+                System.out.println("Introduce importe:");
+                double importe = teclado.nextDouble();
+
+                if (payPal.validarPayPal(importe)){
+                    realizarPago(payPal);
+                }else {
+                    System.out.println("Los datos de tu PayPal no son correctos.");
+                }
+
                 break;
 
             default:

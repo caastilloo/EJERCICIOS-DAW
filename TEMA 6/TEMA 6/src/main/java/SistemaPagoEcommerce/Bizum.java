@@ -5,15 +5,14 @@ import java.util.Scanner;
 
 public class Bizum extends MetodoPago{
 
-    static Random aleatorio = new Random();
     static Scanner teclado = new Scanner(System.in);
 
     private String telefono;
     private int pin;
 
-    public Bizum(String telefono, int pin){
+    public Bizum(String telefono){
         this.telefono = telefono;
-        this.pin = pin;
+        generarPin();
     }
 
     @Override
@@ -23,17 +22,33 @@ public class Bizum extends MetodoPago{
     }
 
     // AÑADIR CONTROL PIN
-    public void validarBizum(){
+    public boolean validarBizum(int pin){
         System.out.println("Validando Bizum ...");
+
         if (telefono.length()!=9){
             System.out.println("Los datos de tu Bizum no son correctos.");
-        }else {
-            System.out.println("Introduce el importe a pagar:");
-            int importe = teclado.nextInt();
-            procesarPago(importe);
+            return false;
         }
 
+        if (this.pin != pin){
+            System.out.println("El PIN no es el correcto.");
+            return false;
+        }
 
+        return true;
+
+//        else {
+//            System.out.println("Introduce el importe a pagar:");
+//            int importe = teclado.nextInt();
+//            procesarPago(importe);
+//        }
+    }
+
+    private void generarPin(){
+        Random aleatorio = new Random();
+
+        pin = aleatorio.nextInt(900000) + 100000;
+        System.out.println("[PIN GENERADO]: " + pin);
     }
 
     public String getTelefono() {
