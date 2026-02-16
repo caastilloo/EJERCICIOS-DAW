@@ -98,7 +98,7 @@ Es el orquestador principal que gestiona la lógica de la tienda y la interfaz c
 
 A continuación se muestra el diagrama UML que representa la arquitectura de clases del proyecto y sus relaciones:
 
-![Diagrama UML del proyecto](DiagramaUML%20-%20Ecommerce.png)
+![Diagrama UML del proyecto](img/DiagramaUML%20-%20Ecommerce.png)
 
 ---
 
