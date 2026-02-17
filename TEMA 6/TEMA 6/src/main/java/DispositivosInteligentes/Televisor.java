@@ -2,12 +2,8 @@ package DispositivosInteligentes;
 
 public class Televisor extends Dispositivo implements ControlRemoto{
 
-    public Televisor(String nombre, boolean estado) {
-        super(nombre, estado);
-    }
-
-    public Televisor(){
-
+    public Televisor(String nombre) {
+        super(nombre);
     }
 
     @Override
@@ -17,13 +13,22 @@ public class Televisor extends Dispositivo implements ControlRemoto{
 
     @Override
     public void enceder() {
-        Dispositivo televisor = new Televisor();
 
-        if (televisor.isEstado() == true){
+        // OPCION 1
+        if (super.estado){
             System.out.println("El televisor ya está encendido.");
         }else {
             System.out.println("Encendiendo televisor");
+            super.estado = true;
         }
+
+        // OPCION 2
+//        if (isEstado()){
+//            System.out.println("El televisor ya está encendido.");
+//        }else {
+//            System.out.println("Encendiendo televisor");
+//            setEstado(true);
+//        }
 
     }
 }

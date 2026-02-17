@@ -2,12 +2,8 @@ package DispositivosInteligentes;
 
 public class AireAcondicionado extends Dispositivo implements ControlRemoto{
 
-    public AireAcondicionado(String nombre, boolean estado) {
-        super(nombre, estado);
-    }
-
-    public AireAcondicionado(){
-
+    public AireAcondicionado(String nombre) {
+        super(nombre);
     }
 
     @Override
@@ -17,12 +13,21 @@ public class AireAcondicionado extends Dispositivo implements ControlRemoto{
 
     @Override
     public void enceder() {
-        Dispositivo aire = new AireAcondicionado();
 
-        if (aire.isEstado() == true){
+        // OPCION 1
+//        if (isEstado()){
+//            System.out.println("El aire acondicionado ya está encendido.");
+//        }else {
+//            System.out.println("Encendiendo aire acondicionado...");
+//            setEstado(true);
+//        }
+
+        // OPCION 2
+        if (super.estado){
             System.out.println("El aire acondicionado ya está encendido.");
         }else {
             System.out.println("Encendiendo aire acondicionado...");
+            super.estado = true;
         }
 
 

@@ -2,23 +2,27 @@ package DispositivosInteligentes;
 
 public class ParlanteInteligente extends Dispositivo{
 
-    public ParlanteInteligente(String nombre, boolean estado) {
-        super(nombre, estado);
-    }
-
-    public ParlanteInteligente(){
-
+    public ParlanteInteligente(String nombre) {
+        super(nombre);
     }
 
     @Override
     public void enceder() {
 
-        ParlanteInteligente parlante = new ParlanteInteligente();
+        // OPCION 1
+//        if (isEstado()){
+//            System.out.println("El parlante ya está encendido.");
+//        }else {
+//            System.out.println("Activando parlante con comando de voz...");
+//            setEstado(true);
+//        }
 
-        if (parlante.isEstado() == true){
+        // OPCION 2
+        if (super.estado){
             System.out.println("El parlante ya está encendido.");
         }else {
             System.out.println("Activando parlante con comando de voz...");
+            super.estado=true;
         }
 
 
