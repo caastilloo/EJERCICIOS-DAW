@@ -23,6 +23,6 @@ public class MetodosApp {
         System.out.println("Posición: " + opcion.ordinal());
         System.out.println("Nombre: " + opcion.name());
         System.out.println("Comisión: " + opcion.getComision());
-        
+
     }
 }
