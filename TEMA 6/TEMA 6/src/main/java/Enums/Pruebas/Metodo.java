@@ -1,4 +1,4 @@
-package PruebasEnum;
+package Enums.Pruebas;
 
 public enum Metodo {
 

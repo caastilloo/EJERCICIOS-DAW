@@ -1,11 +1,12 @@
-package PruebasEnum;
+package Enums.Pruebas;
 
-import SistemaPagoEcommerce.MetodoPago;
+import java.util.Scanner;
 
 public class MetodosApp {
 
     static void main() {
 
+        Scanner teclado = new Scanner(System.in);
         Metodo opcion = Metodo.PAYPAL;
 
         System.out.println("Opción: " + opcion);
@@ -23,6 +24,10 @@ public class MetodosApp {
         System.out.println("Posición: " + opcion.ordinal());
         System.out.println("Nombre: " + opcion.name());
         System.out.println("Comisión: " + opcion.getComision());
+
+        System.out.println("Elige un método de pago: ");
+        Metodo respuesta = Metodo.valueOf(teclado.next().toUpperCase());
+        System.out.println("Método elegido: " + respuesta);
 
     }
 }
