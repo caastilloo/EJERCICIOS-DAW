@@ -15,7 +15,7 @@ public class DificultadApp {
         System.out.println("Introduce la dificultad [FACIL, MEDIO, DIFICIL, EXPERTO]");
         Dificultad dificultad = Dificultad.valueOf(teclado.next().toUpperCase());
 
-        int num_aleatorio = aleatorio.nextInt();
+        int num_aleatorio = aleatorio.nextInt(4800)+1;
 
         System.out.println("Puntación Obtenida: " + num_aleatorio);
         System.out.println("Puntación final: " + num_aleatorio*dificultad.multi_puntuacion);

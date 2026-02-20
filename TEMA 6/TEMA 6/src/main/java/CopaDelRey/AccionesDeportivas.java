@@ -1,0 +1,7 @@
+package CopaDelRey;
+
+public interface AccionesDeportivas {
+
+    void entrenar();
+    void jugarPartido(String rival);
+}
