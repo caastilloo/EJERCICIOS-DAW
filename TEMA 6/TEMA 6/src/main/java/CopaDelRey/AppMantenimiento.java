@@ -1,5 +1,6 @@
 package CopaDelRey;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AppMantenimiento {
@@ -8,7 +9,7 @@ public class AppMantenimiento {
 
     static void main() {
 
-
+        ArrayList<Jugador> listaJugadores = new ArrayList<>();
 
 
 
