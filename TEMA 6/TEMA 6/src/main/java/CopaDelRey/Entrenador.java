@@ -7,8 +7,10 @@ public class Entrenador extends MutxamielFC implements AccionesDeportivas{
     private Equipos equipo;
     private String formacionPreferida;
 
-    public Entrenador(String nombre, int edad) {
+    public Entrenador(String nombre, int edad, Equipos equipo, String formacionPreferida) {
         super(nombre, edad);
+        this.equipo = equipo;
+        this.formacionPreferida = formacionPreferida;
     }
 
     public Equipos getEquipo() {
@@ -50,6 +52,14 @@ public class Entrenador extends MutxamielFC implements AccionesDeportivas{
     @Override
     public void jugarPartido(String rival) {
         System.out.printf("El entrenador " + getNombre() + " del equipo " + equipo + " está jugando contra " + rival);
+    }
+
+    public void planificarEntrenamiento(){
+        System.out.printf(getNombre() + " está planificando el entrenamiento.");
+    }
+
+    public void hacerCambios(){
+        System.out.printf(getNombre() + " está haciendo cambios.");
     }
 
     @Override

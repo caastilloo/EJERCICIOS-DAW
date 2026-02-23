@@ -38,4 +38,16 @@ public class Jugador extends MutxamielFC implements AccionesDeportivas{
     public void jugarPartido(String rival) {
         System.out.printf("El jugador " + getNombre() + " está jugando el partido contra " + rival);
     }
+
+    public void calentar(){
+        System.out.printf(getNombre() + " está calentando.");
+    }
+
+    public void descansar(){
+        System.out.printf(getNombre() + " está descansando.");
+    }
+
+    public void marcarGol(){
+        System.out.printf(getNombre() + " ha marcado un GOL!");
+    }
 }

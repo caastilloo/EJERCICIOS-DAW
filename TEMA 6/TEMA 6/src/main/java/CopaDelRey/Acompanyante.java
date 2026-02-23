@@ -1,16 +1,14 @@
 package CopaDelRey;
 
-public class Acompañante extends MutxamielFC{
+public class Acompanyante extends MutxamielFC{
 
     private Jugador integrante;
     private String parentesco;
 
-    public Acompañante(String nombre, int edad) {
+    public Acompanyante(String nombre, int edad, Jugador integrante, String parentesco) {
         super(nombre, edad);
-    }
-
-    public void animarEquipo(){
-
+        this.integrante = integrante;
+        this.parentesco = parentesco;
     }
 
     public Jugador getIntegrante() {
@@ -42,6 +40,10 @@ public class Acompañante extends MutxamielFC{
     @Override
     public void celebrarGol() {
         System.out.printf("El acompañante " + getNombre() + " está celebrando el GOL");
+    }
+
+    public void animarEquipo(){
+        System.out.printf(getNombre() + " está animando a su equipo.");
     }
 
     @Override

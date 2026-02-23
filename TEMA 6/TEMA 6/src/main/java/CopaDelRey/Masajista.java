@@ -5,8 +5,10 @@ public class Masajista extends MutxamielFC{
     private String titulacion;
     private int anosExperiencia;
 
-    public Masajista(String nombre, int edad) {
+    public Masajista(String nombre, int edad, String titulacion, int anosExperiencia) {
         super(nombre, edad);
+        this.titulacion = titulacion;
+        this.anosExperiencia = anosExperiencia;
     }
 
     public String getTitulacion() {
@@ -38,6 +40,10 @@ public class Masajista extends MutxamielFC{
     @Override
     public void celebrarGol() {
         System.out.printf("El masajista " + getNombre() + " está celebrando el GOL");
+    }
+
+    public void darMasaje(Jugador jugador){
+        System.out.printf("El masajista " + getNombre() + " le está dando un masaje al jugador " + jugador + ".");
     }
 
     @Override
