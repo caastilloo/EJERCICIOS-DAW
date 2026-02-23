@@ -27,17 +27,17 @@ public class Masajista extends MutxamielFC{
 
     @Override
     public void concentrarse() {
-
+        System.out.printf("El masajista " + getNombre() + " está concentrandose");
     }
 
     @Override
     public void viajar(String ciudad) {
-
+        System.out.printf("El masajista " + getNombre() + " está viajando a " + ciudad);
     }
 
     @Override
     public void celebrarGol() {
-
+        System.out.printf("El masajista " + getNombre() + " está celebrando el GOL");
     }
 
     @Override

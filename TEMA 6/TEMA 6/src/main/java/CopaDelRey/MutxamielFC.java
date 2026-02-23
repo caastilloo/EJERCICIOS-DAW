@@ -1,5 +1,7 @@
 package CopaDelRey;
 
+import java.util.Scanner;
+
 public abstract class MutxamielFC implements FuncionesIntegrantes{
 
     private String nombre;

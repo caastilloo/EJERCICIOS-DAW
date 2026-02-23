@@ -34,22 +34,22 @@ public class Entrenador extends MutxamielFC implements AccionesDeportivas{
 
     @Override
     public void viajar(String ciudad) {
-
+        System.out.printf("El entrenador " + getNombre() + " está viajando a " + ciudad);
     }
 
     @Override
     public void celebrarGol() {
-
+        System.out.printf("El entrenador " + getNombre() + " está celebrando el GOL");
     }
 
     @Override
     public void entrenar() {
-
+        System.out.printf("El entrenador " + getNombre() + " está entrenando a su equipo (" + equipo +  ")");
     }
 
     @Override
     public void jugarPartido(String rival) {
-
+        System.out.printf("El entrenador " + getNombre() + " del equipo " + equipo + " está jugando contra " + rival);
     }
 
     @Override
