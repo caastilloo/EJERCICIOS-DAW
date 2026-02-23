@@ -39,7 +39,7 @@ public class AppMantenimiento {
 
 
                 Jugador jugador = new Jugador(nombre, edad, );
-            case 2:
+            case 2: 
                 System.out.printf("¿De que jugador quieres hacer cambios?");
 
 //                for (Jugador jugador1 :)
