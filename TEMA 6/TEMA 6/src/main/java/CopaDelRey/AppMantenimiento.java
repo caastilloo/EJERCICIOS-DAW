@@ -5,9 +5,15 @@ import java.util.Scanner;
 
 public class AppMantenimiento {
 
-    Scanner teclado = new Scanner(System.in);
+    static Scanner teclado = new Scanner(System.in);
 
-    public void menuPrincipal(){
+    static void main() {
+
+        menuPrincipal();
+
+    }
+
+    public static void menuPrincipal(){
 
         System.out.println("=== App de mantenimiento del MUTXAMEL FC ===");
 
@@ -27,13 +33,7 @@ public class AppMantenimiento {
 
         System.out.println("[X]. Salir");
 
-        System.out.println("==============================");
-
-        System.out.println("Seleccione una opción");
-        char opcion = teclado.next().charAt(0);
-    }
-
-    public void validacionMenu(char opcion){
+        System.out.println();
 
         System.out.println("================================================");
 
@@ -42,32 +42,90 @@ public class AppMantenimiento {
         System.out.println("Seleccione una opción ->");
         char opcion = teclado.next().charAt(0);
 
+        validacionMenu(opcion);
+    }
+
+    public static void validacionMenu(char opcion){
+
         switch (opcion){
-            case 1:
-                System.out.println("Introduce el nombre del jugador a añadir:");
-                String nombre = teclado.nextLine();
+            case '1':
+                mantenimientoJugadores();
+                break;
+            case '2':
+                break;
+            case '3':
+                break;
+            case '4':
+                consultaEquipos();
+            case 'X':
+                break;
+            default:
+                System.out.println("Seleccione una opción válida.");
+                break;
+        }
 
-                System.out.println("Introduce la edad del jugador a añadir:");
-                int edad = teclado.nextInt();
+    }
 
-                System.out.println("Introduce la categoría del jugador a añadir:");
+    // EQUIPOS (CONSULTAS)
 
+    public static void consultaEquipos(){
+        System.out.println("=== Consulta de Equipos ===");
 
-//                Jugador jugador = new Jugador(nombre, edad, );
-            case 2:
-                System.out.println("¿De que jugador quieres hacer cambios?");
+        System.out.println();
 
-//                for (Jugador jugador1 :)
+        System.out.println("Seleccione un equipo a consultar:");
 
-                System.out.println("================================================");
+        System.out.println();
 
-                System.out.println("Seleccione una opción ->");
+        System.out.println("[1]. BENJAMÍN");
+        System.out.println("[2]. ALEVÍN");
+        System.out.println("[3]. INFANTIL");
+        System.out.println("[4]. CADETE");
+        System.out.println("[5]. JUVENIL");
+        System.out.println("[6]. SENIOR");
+        System.out.println("[X]. Salir al menú principal");
 
+        System.out.println();
 
+        System.out.println("================================================");
+
+        System.out.println("Seleccione una opción ->");
+        CopaDelRey.Equipos equipo = Equipos.valueOf(teclado.next());
+
+        validarConsulta(equipo);
+
+    }
+
+    public static void validarConsulta(Equipos equipo){
+
+        switch (equipo){
+            case BENJAMIN:
+                equipo.toString();
+                break;
+            case ALEVIN:
+                equipo.toString();
+                break;
+            case INFANTIL:
+                equipo.toString();
+                break;
+            case CADETE:
+                equipo.toString();
+                break;
+            case JUVENIL:
+                equipo.toString();
+                break;
+            case SENIOR:
+                equipo.toString();
+                break;
+            default:
+                System.out.println("Seleccione una opción válida.");
+                break;
         }
     }
 
-    public void mantenimientoJugadores(){
+    // JUGADORES (MANTENIMIENTO)
+
+    public static void mantenimientoJugadores(){
 
         System.out.println("=== Mantenimiento de Jugadores ===");
 
@@ -79,9 +137,40 @@ public class AppMantenimiento {
         System.out.println("[X]. Volver al menú principal");
 
         System.out.println();
+
+        System.out.println("================================================");
+
+        System.out.println();
+
+        System.out.println("Seleccione una opción ->");
+        char opcion = teclado.next().charAt(0);
+
+        validarMantenimientoJugadores(opcion);
     }
 
-    public void menuAnyadirJugador(){
+    public static void validarMantenimientoJugadores(char opcion){
+
+        switch (opcion){
+            case '1':
+                menuAnyadirJugador();
+                break;
+            case '2':
+                menuModificarDatosJugador();
+                break;
+            case '3':
+                menuCrearAcompanyantes();
+                break;
+            case 'X':
+                menuPrincipal();
+                break;
+            default:
+                System.out.println("Seleccione una opción válida.");
+                break;
+        }
+    }
+
+    public static void menuModificarDatosJugador(){
+
         System.out.println("=== Mantenimiento de Jugadores. Modificar datos de jugador existente ===");
 
         System.out.println();
@@ -95,14 +184,25 @@ public class AppMantenimiento {
 //        }
 
         System.out.println();
+
+        System.out.println("================================================");
+
+        System.out.println();
+
+        System.out.println("Seleccione una opción ->");
+
+
+//        menuModificarAtributos();
+
     }
 
-    public void menuModificarDatosJugador(){
+    public static void menuModificarAtributos(Jugador jugador){
+
         System.out.println("=== Mantenimiento de Jugadores. Modificar datos de jugador existente ===");
 
         System.out.println();
 
-        System.out.println("Modificando jugador: ");
+        System.out.println("Modificando jugador: " + jugador);
         System.out.println();
 
         System.out.println("¿Qué quieres modificar? [nombre, edad, categoria, dorsal, posicion]:");
@@ -114,9 +214,45 @@ public class AppMantenimiento {
         System.out.println("Seleccione una opción ->");
         String opcion = teclado.next().toLowerCase();
 
+        validarModificacionAtributos(opcion, jugador);
+
     }
 
-    public void menuCrearAcompanyantes(){
+    public static void validarModificacionAtributos(String opcion, Jugador jugador){
+
+        switch (opcion){
+            case "nombre":
+                System.out.print("Nuevo nombre -> ");
+                String nombre_nuevo = teclado.nextLine();
+                jugador.setNombre(nombre_nuevo);
+                break;
+            case "edad":
+                System.out.print("Nueva edad -> ");
+                int edad_nueva = teclado.nextInt();
+                jugador.setEdad(edad_nueva);
+                break;
+            case "categoria":
+                System.out.print("Nueva categoría -> ");
+                Equipos categoria_nueva = Equipos.valueOf(teclado.next());
+                jugador.setCategoria(categoria_nueva);
+                break;
+            case "dorsal":
+                System.out.print("Nuevo dorsal -> ");
+                int dorsal_nuevo = teclado.nextInt();
+                jugador.setDorsal(dorsal_nuevo);
+                break;
+            case "posicion":
+                System.out.print("Nueva posición -> ");
+                Posiciones posicion_nueva = Posiciones.valueOf(teclado.next());
+                jugador.setPosicion(posicion_nueva);
+                break;
+            default:
+                System.out.print("Seleccione una opción válida.");
+                break;
+        }
+    }
+
+    public static void menuCrearAcompanyantes(){
         System.out.println("=== Mantenimiento de Jugadores. Modificar datos de jugador existente ===");
         System.out.println();
 
@@ -140,29 +276,30 @@ public class AppMantenimiento {
 
     }
 
-    public void menuModificarAtributos(String opcion){
+    public static void menuAnyadirJugador(){
 
-        switch (opcion){
-            case "nombre":
-                System.out.println("Introduzca el nombre a modificar: ");
-//                Jugador.setNombre
-                break;
-            case "edad":
-                System.out.println("Introduzca la edad a modificar: ");
-                break;
-            case "categoria":
-                System.out.println("Introduzca la categoría a modificar: ");
-                break;
-            case "dorsal":
-                System.out.println("Introduzca el dorsal a modificar: ");
-                break;
-            case "posicion":
-                System.out.println("Introduzca la posición a modificar: ");
-                break;
-            default:
-                System.out.println("ERROR. Esa opción no es válida.");
-                break;
-        }
+        System.out.println("=== Mantenimiento de Jugadores. Añadir un nuevo Jugador ===");
+
+        System.out.println();
+
+        System.out.println("INTRODUZCA LOS SIGUIENTES DATOS:");
+        System.out.print("[1]. Introduce el nombre -> ");
+        String nombre = teclado.nextLine();
+
+        System.out.print("[1]. Introduce la edad -> ");
+        int edad = teclado.nextInt();
+
+        System.out.print("[1]. Introduce la categoría -> ");
+        Equipos categoria = Equipos.valueOf(teclado.next());
+
+        System.out.print("[1]. Introduce el dorsal -> ");
+        int dorsal = teclado.nextInt();
+
+        System.out.print("[1]. Introduce la posición -> ");
+        Posiciones posicion = Posiciones.valueOf(teclado.next());
+
+        // Añadir jugador
+
     }
 
 

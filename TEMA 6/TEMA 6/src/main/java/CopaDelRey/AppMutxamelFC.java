@@ -18,6 +18,22 @@ public class AppMutxamelFC {
         Jugador jugador6 = new Jugador("Alejandro", 26, Equipos.SENIOR, 25, Posiciones.CENTROCAMPISTA );
         Jugador jugador7 = new Jugador("Ismael", 21, Equipos.SENIOR, 11, Posiciones.DELANTERO );
 
+        // Añadir jugadores en la lista
+        listaJugadores.add(jugador1);
+        listaJugadores.add(jugador2);
+        listaJugadores.add(jugador3);
+        listaJugadores.add(jugador4);
+        listaJugadores.add(jugador5);
+        listaJugadores.add(jugador6);
+        listaJugadores.add(jugador7);
+
+        // Imprimir lista
+        System.out.println();
+
+        for (Jugador jugador : listaJugadores){
+            System.out.println(jugador);
+        }
+
         // Entrenador (SENIOR)
         Entrenador entrenador = new Entrenador("Pepe", 59, Equipos.SENIOR, "4-3-3");
 
@@ -82,6 +98,8 @@ public class AppMutxamelFC {
         // Viajar a Mutxamel
 
         // Descansar
+
+
 
     }
 }

@@ -50,4 +50,39 @@ public class Jugador extends MutxamielFC implements AccionesDeportivas{
     public void marcarGol(){
         System.out.printf(getNombre() + " ha marcado un GOL!");
     }
+
+    public Equipos getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Equipos categoria) {
+        this.categoria = categoria;
+    }
+
+    public int getDorsal() {
+        return dorsal;
+    }
+
+    public void setDorsal(int dorsal) {
+        this.dorsal = dorsal;
+    }
+
+    public Posiciones getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(Posiciones posicion) {
+        this.posicion = posicion;
+    }
+
+    @Override
+    public String toString() {
+        return "Jugador[" +
+                "Nombre: " + getNombre() +
+                ", Edad: " + getEdad() +
+                ", Categoria: " + categoria +
+                ", Dorsal: " + dorsal +
+                ", Posicion: " + posicion +
+                ']';
+    }
 }
