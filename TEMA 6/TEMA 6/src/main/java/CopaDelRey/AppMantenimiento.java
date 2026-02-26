@@ -8,7 +8,6 @@ public class AppMantenimiento {
     static Scanner teclado = new Scanner(System.in);
 
     static ArrayList<Jugador> listaJugadores = new ArrayList<>();
-    static ArrayList<Entrenador> listaEntrenadores = new ArrayList<>();
     static ArrayList<Masajista> listaMasajistas = new ArrayList<>();
     static ArrayList<Acompanyante> listaAcompanyantes = new ArrayList<>();
 
@@ -84,6 +83,8 @@ public class AppMantenimiento {
         System.out.println("Introduzca el nombre del equipo a consultar:");
         Equipos equipo_consulta = Equipos.valueOf(teclado.next().toUpperCase());
 
+        System.out.println();
+
         for (Jugador jugador : listaJugadores){
             if (equipo_consulta == jugador.getCategoria()){
                 System.out.println(jugador);
@@ -91,6 +92,8 @@ public class AppMantenimiento {
         }
 
         System.out.println();
+
+        menuPrincipal();
 
 //        System.out.println("- BENJAMÍN");
 //        System.out.println("- ALEVÍN");
@@ -271,7 +274,14 @@ public class AppMantenimiento {
             case "dorsal":
                 System.out.print("Nuevo dorsal -> ");
                 int dorsal_nuevo = teclado.nextInt();
-                jugador.setDorsal(dorsal_nuevo);
+//                jugador.setDorsal(dorsal_nuevo);
+
+                for (Jugador jugador1 : listaJugadores){
+                    if (dorsal_nuevo == jugador1.getDorsal()){
+                        System.out.println("El dorsal seleccionado ya está en uso.");
+                        break;
+                    }
+                }
 
                 System.out.println("Dorsal actualizado correctamente.");
                 break;
