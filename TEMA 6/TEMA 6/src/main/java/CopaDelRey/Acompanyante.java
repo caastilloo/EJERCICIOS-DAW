@@ -34,7 +34,7 @@ public class Acompanyante extends MutxamielFC{
 
     @Override
     public void viajar(String ciudad) {
-        System.out.println("El acompañante " + getNombre() + "está viajando a " + ciudad);
+        System.out.println("El acompañante " + getNombre() + " está viajando a " + ciudad);
     }
 
     @Override

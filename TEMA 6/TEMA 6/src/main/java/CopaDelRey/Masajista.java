@@ -34,7 +34,7 @@ public class Masajista extends MutxamielFC{
 
     @Override
     public void viajar(String ciudad) {
-        System.out.printf("El masajista " + getNombre() + " está viajando a " + ciudad);
+        System.out.println("El masajista " + getNombre() + " está viajando a " + ciudad);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Masajista extends MutxamielFC{
     }
 
     public void darMasaje(Jugador jugador){
-        System.out.printf("El masajista " + getNombre() + " le está dando un masaje al jugador " + jugador + ".");
+        System.out.println("El masajista " + getNombre() + " le está dando un masaje al jugador " + jugador + ".");
     }
 
     @Override

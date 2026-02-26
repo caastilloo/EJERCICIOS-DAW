@@ -28,76 +28,158 @@ public class AppMutxamelFC {
         listaJugadores.add(jugador7);
 
         // Imprimir lista
-        System.out.println();
-
         for (Jugador jugador : listaJugadores){
             System.out.println(jugador);
         }
 
+        System.out.println();
+
         // Entrenador (SENIOR)
-        Entrenador entrenador = new Entrenador("Pepe", 59, Equipos.SENIOR, "4-3-3");
+        Entrenador entrenador = null;
+
+        try{
+            entrenador = new Entrenador("Pepe", 59, Equipos.SENIOR, "4-3-3");
+        }catch (FormatoFormacionException er){
+            System.out.println("Error. La formación no es válida.");
+        }
+
+        System.out.println();
 
         // Masajistas (SENIOR)
-        Masajista masajista1 = new Masajista("Pedro", 30, "Fisio", 8);
-        Masajista masajista2 = new Masajista("Paco", 28, "Fisio", 5);
+        Masajista masajista1 = new Masajista("Pedro", 30, "Universitaria", 8);
+        Masajista masajista2 = new Masajista("Paco", 28, "Formación profesional", 5);
 
         // Acompañantes (SENIOR)
         Acompanyante acompanyante1 = new Acompanyante("Elena", 19, jugador1, "Pareja");
         Acompanyante acompanyante2 = new Acompanyante("Pilar", 50, jugador2, "Madre");
 
+        ArrayList<FuncionesIntegrantes> listaIntegrantes = new ArrayList<>();
+        ArrayList<AccionesDeportivas> listaDeportivos = new ArrayList<>();
+
+        for (Jugador jugador : listaJugadores){
+            listaIntegrantes.add(jugador);
+            listaDeportivos.add(jugador);
+        }
+
+        listaIntegrantes.add(entrenador);
+        listaDeportivos.add(entrenador);
+
+        listaIntegrantes.add(masajista1);
+        listaIntegrantes.add(masajista2);
+
+        listaIntegrantes.add(acompanyante1);
+        listaIntegrantes.add(acompanyante2);
+
         // Concentrarse
+        System.out.println("=== CONCENTRARSE ===");
+        for (FuncionesIntegrantes integrantes : listaIntegrantes){
+            integrantes.concentrarse();
+        }
+
+        System.out.println();
 
         // Entrenar
-        jugador1.entrenar();
-        entrenador.entrenar();
+        System.out.println("=== ENTRENAR ===");
+        for (AccionesDeportivas deportivo : listaDeportivos){
+            deportivo.entrenar();
+        }
+
+        System.out.println();
 
         // Dar masaje algun jugador
+        System.out.println("=== DAR MASAJE ===");
         masajista1.darMasaje(jugador1);
         masajista2.darMasaje(jugador2);
 
         // Viajar a Madrid
-        jugador3.viajar("Madrid");
-        entrenador.viajar("Madrid");
-        masajista1.viajar("Madrid");
-        acompanyante2.viajar("Madrid");
+        System.out.println("=== VIAJAR A MADRID ===");
+        for (FuncionesIntegrantes integrantes : listaIntegrantes){
+            integrantes.viajar("Madrid");
+        }
+
+        System.out.println();
 
         // Planificar entrenamiento
+        System.out.println("=== PLANIFICAR ENTRENAMIENTO ===");
         entrenador.planificarEntrenamiento();
 
+        System.out.println();
+
         // Entrenar
-        jugador1.entrenar();
-        entrenador.entrenar();
+//        System.out.println("=== ENTRENAR ===");
+//        jugador1.entrenar();
+//        entrenador.entrenar();
 
         // Descansar
-        jugador1.descansar();
+        System.out.println("=== DESCANSAR ===");
+        for (Jugador jugador : listaJugadores){
+            jugador.descansar();
+        }
+
+        System.out.println();
 
         // Calentar
-        jugador1.calentar();
+        System.out.println("=== CALENTAR ===");
+        for (Jugador jugador : listaJugadores){
+            jugador.calentar();
+        }
+
+        System.out.println();
 
         // Jugar partido
-        jugador1.jugarPartido("Real Madrid");
-        entrenador.jugarPartido("Real Madrid");
+        System.out.println("=== JUGAR PARTIDO ===");
+        for (AccionesDeportivas deportivo : listaDeportivos){
+            deportivo.jugarPartido("Real Madrid");
+        }
+
+        System.out.println();
 
         // Animar equipo
+        System.out.println("=== ANIMAR EQUIPO ===");
         acompanyante2.animarEquipo();
         acompanyante1.animarEquipo();
 
+        System.out.println();
+
         // Hacer cambios
+        System.out.println("=== HACER CAMBIOS ===");
         entrenador.hacerCambios();
 
+        System.out.println();
+
         // Marcar gol
+        System.out.println("=== MARCAR GOL ===");
         jugador1.marcarGol();
         jugador2.marcarGol();
 
+        System.out.println();
+
         // Celbrar gol
-        jugador3.celebrarGol();
-        jugador1.celebrarGol();
+        System.out.println("=== CELEBRAR GOL ===");
+        for (FuncionesIntegrantes integrantes : listaIntegrantes){
+            integrantes.celebrarGol();
+        }
+
+        System.out.println();
 
         // Dar masaje a varios jugadores
+        System.out.println("=== DAR MASAJE A VARIOS JUGADORES ===");
+        masajista1.darMasaje(jugador3);
+        masajista2.darMasaje(jugador4);
+
+        System.out.println();
 
         // Viajar a Mutxamel
+        System.out.println("=== VIAJAR A MUTXAMEL ===");
+        for (FuncionesIntegrantes integrantes : listaIntegrantes){
+            integrantes.viajar("Mutxamel");
+        }
 
         // Descansar
+        System.out.println("=== DESCANSAR ===");
+        for (Jugador jugador : listaJugadores){
+            jugador.descansar();
+        }
 
 
 
