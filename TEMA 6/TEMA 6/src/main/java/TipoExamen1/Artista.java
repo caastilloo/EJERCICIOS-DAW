@@ -1,4 +1,4 @@
-package TipoExamen;
+package TipoExamen1;
 
 import java.util.ArrayList;
 

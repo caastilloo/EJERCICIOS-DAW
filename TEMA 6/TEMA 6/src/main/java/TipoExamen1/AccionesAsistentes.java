@@ -1,4 +1,4 @@
-package TipoExamen;
+package TipoExamen1;
 
 public interface AccionesAsistentes {
 
