@@ -22,9 +22,15 @@ public class AppMantenimiento {
      * Inicia la aplicación de mantenimiento.
      */
     static void main() throws MismoDorsalException {
-
+        inicializarJugadores();
         menuPrincipal();
 
+    }
+
+    private static void inicializarJugadores() {
+        listaJugadores.add(new Jugador("Jose", 20, Equipos.SENIOR, 10, Posiciones.DELANTERO));
+        listaJugadores.add(new Jugador("Pablo", 19, Equipos.SENIOR, 7, Posiciones.CENTROCAMPISTA));
+        listaJugadores.add(new Jugador("Carlos", 18, Equipos.JUVENIL, 9, Posiciones.DEFENSA));
     }
 
     /**

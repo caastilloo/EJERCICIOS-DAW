@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class AppMutxaAwards {
 
-    static void main() {
+    static void main(String[] args) {
 
         // Crear un presentador
         Presentador presentado1 = new Presentador(2025, "Pablo");
