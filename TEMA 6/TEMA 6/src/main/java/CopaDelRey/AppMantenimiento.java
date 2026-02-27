@@ -3,6 +3,13 @@ package CopaDelRey;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Clase principal que gestiona el menú de mantenimiento del club.
+ * Permite añadir y modificar jugadores y crear acompañantes.
+ *
+ * @author Jose
+ * @version 1.0
+ */
 public class AppMantenimiento {
 
     static Scanner teclado = new Scanner(System.in);
@@ -11,13 +18,19 @@ public class AppMantenimiento {
     static ArrayList<Masajista> listaMasajistas = new ArrayList<>();
     static ArrayList<Acompanyante> listaAcompanyantes = new ArrayList<>();
 
-    static void main() {
+    /**
+     * Inicia la aplicación de mantenimiento.
+     */
+    static void main() throws MismoDorsalException {
 
         menuPrincipal();
 
     }
 
-    public static void menuPrincipal(){
+    /**
+     * Muestra el menú principal de la aplicación.
+     */
+    public static void menuPrincipal() throws MismoDorsalException {
 
         System.out.println("=== App de mantenimiento del MUTXAMEL FC ===");
 
@@ -51,7 +64,12 @@ public class AppMantenimiento {
         validacionMenu(opcion);
     }
 
-    public static void validacionMenu(char opcion){
+    /**
+     * Gestiona la opción seleccionada en el menú principal.
+     *
+     * @param opcion opción elegida por el usuario
+     */
+    public static void validacionMenu(char opcion) throws MismoDorsalException {
 
         switch (opcion){
             case '1':
@@ -65,6 +83,7 @@ public class AppMantenimiento {
                 consultaEquipos();
                 break;
             case 'X':
+                System.out.println("Saliendo ...");
                 break;
             default:
                 System.out.println("Seleccione una opción válida.");
@@ -75,7 +94,7 @@ public class AppMantenimiento {
     }
 
     // EQUIPOS (CONSULTAS)
-    public static void consultaEquipos(){
+    public static void consultaEquipos() throws MismoDorsalException {
         System.out.println("=== Consulta de Equipos ===");
 
         System.out.println();
@@ -140,9 +159,10 @@ public class AppMantenimiento {
 //        }
 //    }
 
-    // JUGADORES (MANTENIMIENTO)
-
-    public static void mantenimientoJugadores(){
+    /**
+     * Muestra el menú de mantenimiento de jugadores.
+     */
+    public static void mantenimientoJugadores() throws MismoDorsalException {
 
         System.out.println("=== Mantenimiento de Jugadores ===");
 
@@ -165,7 +185,7 @@ public class AppMantenimiento {
         validarMantenimientoJugadores(opcion);
     }
 
-    public static void validarMantenimientoJugadores(char opcion){
+    public static void validarMantenimientoJugadores(char opcion) throws MismoDorsalException {
 
         switch (opcion){
             case '1':
@@ -187,7 +207,10 @@ public class AppMantenimiento {
         }
     }
 
-    public static void menuModificarDatosJugador(){
+    /**
+     * Permite modificar los datos de un jugador existente.
+     */
+    public static void menuModificarDatosJugador() throws MismoDorsalException {
 
         System.out.println("=== Mantenimiento de Jugadores. Modificar datos de jugador existente ===");
 
@@ -215,7 +238,7 @@ public class AppMantenimiento {
         System.out.println("Seleccione una opción ->");
         int opcion = teclado.nextInt();
 
-        if (opcion < 0 || opcion > listaJugadores.size()){
+        if (opcion < 0 || opcion >= listaJugadores.size()){
             System.out.println("ERROR. Introduce una opción válida.");
             mantenimientoJugadores();
         }
@@ -224,7 +247,12 @@ public class AppMantenimiento {
 
     }
 
-    public static void menuModificarAtributos(Jugador jugador){
+    /**
+     * Permite modificar los atributos de un jugador.
+     *
+     * @param jugador jugador seleccionado
+     */
+    public static void menuModificarAtributos(Jugador jugador) throws MismoDorsalException {
 
         System.out.println("=== Mantenimiento de Jugadores. Modificar datos de jugador existente ===");
 
@@ -251,6 +279,7 @@ public class AppMantenimiento {
 
         switch (opcion){
             case "nombre":
+                teclado.nextLine();
                 System.out.print("Nuevo nombre -> ");
                 String nombre_nuevo = teclado.nextLine();
                 jugador.setNombre(nombre_nuevo);
@@ -266,24 +295,39 @@ public class AppMantenimiento {
                 break;
             case "categoria":
                 System.out.print("Nueva categoría -> ");
-                Equipos categoria_nueva = Equipos.valueOf(teclado.next());
+                Equipos categoria_nueva = Equipos.valueOf(teclado.next().toUpperCase());
                 jugador.setCategoria(categoria_nueva);
 
                 System.out.println("Categoría actualizada correctamente.");
                 break;
             case "dorsal":
-                System.out.print("Nuevo dorsal -> ");
-                int dorsal_nuevo = teclado.nextInt();
-//                jugador.setDorsal(dorsal_nuevo);
 
-                for (Jugador jugador1 : listaJugadores){
-                    if (dorsal_nuevo == jugador1.getDorsal()){
-                        System.out.println("El dorsal seleccionado ya está en uso.");
-                        break;
+                try{
+                    System.out.print("Nuevo dorsal -> ");
+                    int dorsal_nuevo = teclado.nextInt();
+//
+                    for (Jugador jugador1 : listaJugadores){
+                        if (jugador != jugador1 && jugador1.getDorsal() == dorsal_nuevo && jugador1.getCategoria() == jugador.getCategoria()){
+                            throw new MismoDorsalException("Ese dorsal ya está ocupado en el equipo " + jugador.getCategoria());
+                        }
                     }
+
+//                    for (Jugador jugador1 : listaJugadores){
+//                        if (dorsal_nuevo == jugador1.getDorsal()){
+//                            System.out.println("El dorsal seleccionado ya está en uso.");
+//                            break;
+//                        }
+//                    }
+
+                    jugador.setDorsal(dorsal_nuevo);
+                    System.out.println("Dorsal actualizado correctamente.");
+
+                }catch (MismoDorsalException er){
+                    System.out.println("ERROR. " + er.getMessage());
                 }
 
-                System.out.println("Dorsal actualizado correctamente.");
+
+
                 break;
             case "posicion":
                 System.out.print("Nueva posición -> ");
@@ -298,7 +342,10 @@ public class AppMantenimiento {
         }
     }
 
-    public static void menuCrearAcompanyantes(){
+    /**
+     * Permite crear un acompañante para un jugador senior.
+     */
+    public static void menuCrearAcompanyantes() throws MismoDorsalException {
         System.out.println("=== Mantenimiento de Jugadores. Modificar datos de jugador existente ===");
         System.out.println();
 
@@ -333,6 +380,7 @@ public class AppMantenimiento {
         int edad = teclado.nextInt();
 
         System.out.println("[3]. Introduce el parentesco que tenga el acompañante con el jugador: ");
+        teclado.nextLine();
         String parentesco = teclado.nextLine();
 
         Acompanyante acompanyante = new Acompanyante(nombre, edad, jugador, parentesco);
@@ -343,7 +391,10 @@ public class AppMantenimiento {
         mantenimientoJugadores();
     }
 
-    public static void menuAnyadirJugador(){
+    /**
+     * Permite añadir un nuevo jugador a la lista.
+     */
+    public static void menuAnyadirJugador() throws MismoDorsalException {
 
         System.out.println("=== Mantenimiento de Jugadores. Añadir un nuevo Jugador ===");
 
@@ -352,32 +403,38 @@ public class AppMantenimiento {
         System.out.println("INTRODUZCA LOS SIGUIENTES DATOS:");
         System.out.println();
 
-        System.out.println("[1]. Introduce el nombre: ");
-        String nombre = teclado.next();
+        try {
+            System.out.println("[1]. Introduce el nombre: ");
+            String nombre = teclado.next();
 
-        System.out.println("[2]. Introduce la edad: ");
-        int edad = teclado.nextInt();
+            System.out.println("[2]. Introduce la edad: ");
+            int edad = teclado.nextInt();
 
-        System.out.println("[3]. Introduce la categoría: ");
-        Equipos categoria = Equipos.valueOf(teclado.next());
+            System.out.println("[3]. Introduce la categoría: ");
+            Equipos categoria = Equipos.valueOf(teclado.next().toUpperCase());
 
-        System.out.println("[4]. Introduce el dorsal: ");
-        int dorsal = teclado.nextInt();
+            System.out.println("[4]. Introduce el dorsal: ");
+            int dorsal = teclado.nextInt();
 
-        System.out.println("[5]. Introduce la posición: ");
-        Posiciones posicion = Posiciones.valueOf(teclado.next().toUpperCase());
+            System.out.println("[5]. Introduce la posición: ");
+            Posiciones posicion = Posiciones.valueOf(teclado.next().toUpperCase());
 
-        for (Jugador jugador : listaJugadores){
-            if (dorsal == jugador.getDorsal()){
-                throw new MismoDorsalException("Este dorsal ya está ocupado en el equipo " + categoria);
+            for (Jugador jugador : listaJugadores){
+                if (dorsal == jugador.getDorsal() && jugador.getCategoria() == categoria){
+                    throw new MismoDorsalException("Este dorsal ya está ocupado en el equipo " + categoria);
+                }
             }
+
+            // Añadir jugador
+            Jugador jugador = new Jugador(nombre, edad, categoria, dorsal, posicion);
+            listaJugadores.add(jugador);
+
+            System.out.println("Jugador añadido correctamente.");
+
+        }catch (MismoDorsalException er){
+            System.out.println("ERROR " + er.getMessage());
         }
 
-        // Añadir jugador
-        Jugador jugador = new Jugador(nombre, edad, categoria, dorsal, posicion);
-        listaJugadores.add(jugador);
-
-        System.out.println("Jugador añadido correctamente.");
         System.out.println();
         mantenimientoJugadores();
 

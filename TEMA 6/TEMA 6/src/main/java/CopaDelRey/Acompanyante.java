@@ -1,10 +1,25 @@
 package CopaDelRey;
 
-public class Acompanyante extends MutxamielFC{
+/**
+ * Clase que representa a un acompañante de un jugador.
+ * Solo puede asociarse a jugadores del equipo SENIOR.
+ *
+ * @author Jose
+ * @version 1.0
+ */
+public class Acompanyante extends MutxamelFC {
 
     private Jugador integrante;
     private String parentesco;
 
+    /**
+     * Constructor del acompañante.
+     *
+     * @param nombre nombre del acompañante
+     * @param edad edad del acompañante
+     * @param integrante jugador al que acompaña
+     * @param parentesco relación con el jugador
+     */
     public Acompanyante(String nombre, int edad, Jugador integrante, String parentesco) {
         super(nombre, edad);
         this.integrante = integrante;
@@ -42,6 +57,9 @@ public class Acompanyante extends MutxamielFC{
         System.out.printf("El acompañante " + getNombre() + " está celebrando el GOL");
     }
 
+    /**
+     * Simula que el acompañante anima al equipo durante el partido.
+     */
     public void animarEquipo(){
         System.out.printf(getNombre() + " está animando a su equipo.");
     }

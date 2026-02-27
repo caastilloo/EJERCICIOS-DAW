@@ -35,12 +35,13 @@ public class AppMutxamelFC {
         System.out.println();
 
         // Entrenador (SENIOR)
-        Entrenador entrenador = null;
+        Entrenador entrenador;
 
         try{
             entrenador = new Entrenador("Pepe", 59, Equipos.SENIOR, "4-3-3");
         }catch (FormatoFormacionException er){
             System.out.println("Error. La formación no es válida.");
+            return;
         }
 
         System.out.println();
@@ -84,104 +85,111 @@ public class AppMutxamelFC {
             deportivo.entrenar();
         }
 
-        System.out.println();
-
         // Dar masaje algun jugador
+        System.out.println();
         System.out.println("=== DAR MASAJE ===");
         masajista1.darMasaje(jugador1);
         masajista2.darMasaje(jugador2);
 
         // Viajar a Madrid
+        System.out.println();
         System.out.println("=== VIAJAR A MADRID ===");
         for (FuncionesIntegrantes integrantes : listaIntegrantes){
             integrantes.viajar("Madrid");
         }
 
-        System.out.println();
-
         // Planificar entrenamiento
+        System.out.println();
         System.out.println("=== PLANIFICAR ENTRENAMIENTO ===");
         entrenador.planificarEntrenamiento();
-
-        System.out.println();
 
         // Entrenar
 //        System.out.println("=== ENTRENAR ===");
 //        jugador1.entrenar();
 //        entrenador.entrenar();
 
+        System.out.println();
+
         // Descansar
+        System.out.println();
         System.out.println("=== DESCANSAR ===");
         for (Jugador jugador : listaJugadores){
             jugador.descansar();
         }
 
-        System.out.println();
+
 
         // Calentar
+        System.out.println();
         System.out.println("=== CALENTAR ===");
         for (Jugador jugador : listaJugadores){
             jugador.calentar();
         }
 
-        System.out.println();
+
 
         // Jugar partido
+        System.out.println();
         System.out.println("=== JUGAR PARTIDO ===");
         for (AccionesDeportivas deportivo : listaDeportivos){
             deportivo.jugarPartido("Real Madrid");
         }
 
-        System.out.println();
+
 
         // Animar equipo
+        System.out.println();
         System.out.println("=== ANIMAR EQUIPO ===");
         acompanyante2.animarEquipo();
         acompanyante1.animarEquipo();
 
-        System.out.println();
+
 
         // Hacer cambios
+        System.out.println();
         System.out.println("=== HACER CAMBIOS ===");
         entrenador.hacerCambios();
 
-        System.out.println();
+
 
         // Marcar gol
+        System.out.println();
         System.out.println("=== MARCAR GOL ===");
         jugador1.marcarGol();
         jugador2.marcarGol();
 
-        System.out.println();
+
 
         // Celbrar gol
+        System.out.println();
         System.out.println("=== CELEBRAR GOL ===");
         for (FuncionesIntegrantes integrantes : listaIntegrantes){
             integrantes.celebrarGol();
         }
 
-        System.out.println();
+
 
         // Dar masaje a varios jugadores
+        System.out.println();
         System.out.println("=== DAR MASAJE A VARIOS JUGADORES ===");
         masajista1.darMasaje(jugador3);
         masajista2.darMasaje(jugador4);
 
-        System.out.println();
+
 
         // Viajar a Mutxamel
+        System.out.println();
         System.out.println("=== VIAJAR A MUTXAMEL ===");
         for (FuncionesIntegrantes integrantes : listaIntegrantes){
             integrantes.viajar("Mutxamel");
         }
 
         // Descansar
+        System.out.println();
         System.out.println("=== DESCANSAR ===");
         for (Jugador jugador : listaJugadores){
             jugador.descansar();
         }
-
-
 
     }
 }

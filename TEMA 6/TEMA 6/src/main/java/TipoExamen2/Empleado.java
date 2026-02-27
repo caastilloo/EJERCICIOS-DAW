@@ -30,7 +30,9 @@ public class Empleado extends PizzaExpress implements AccionesPedido{
 
     }
 
-    public void entregarPedido(Pedido pedido)
+    public void entregarPedido(Pedido pedido){
+
+    }
 
     @Override
     public void cancelar(Pedido pedido) {

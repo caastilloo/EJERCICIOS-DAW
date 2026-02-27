@@ -1,10 +1,25 @@
 package CopaDelRey;
 
-public class Masajista extends MutxamielFC{
+/**
+ * Clase que representa a un masajista del club.
+ * Se encarga de atender a los jugadores.
+ *
+ * @author Jose
+ * @version 1.0
+ */
+public class Masajista extends MutxamelFC {
 
     private String titulacion;
     private int anosExperiencia;
 
+    /**
+     * Constructor del masajista.
+     *
+     * @param nombre nombre del masajista
+     * @param edad edad del masajista
+     * @param titulacion titulación obtenida
+     * @param anosExperiencia años de experiencia profesional
+     */
     public Masajista(String nombre, int edad, String titulacion, int anosExperiencia) {
         super(nombre, edad);
         this.titulacion = titulacion;
@@ -42,8 +57,13 @@ public class Masajista extends MutxamielFC{
         System.out.printf("El masajista " + getNombre() + " está celebrando el GOL");
     }
 
+    /**
+     * Simula que el masajista da un masaje a un jugador.
+     *
+     * @param jugador jugador que recibe el masaje
+     */
     public void darMasaje(Jugador jugador){
-        System.out.println("El masajista " + getNombre() + " le está dando un masaje al jugador " + jugador + ".");
+        System.out.println("El masajista " + getNombre() + " le está dando un masaje al jugador " + jugador.getNombre() + ".");
     }
 
     @Override

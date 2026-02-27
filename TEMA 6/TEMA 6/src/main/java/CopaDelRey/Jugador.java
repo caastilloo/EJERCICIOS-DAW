@@ -1,12 +1,28 @@
 package CopaDelRey;
 
-public class Jugador extends MutxamielFC implements AccionesDeportivas{
+/**
+ * Clase que representa a un jugador del Mutxamel FC.
+ * Incluye su categoría, dorsal y posición en el campo.
+ *
+ * @author Jose
+ * @version 1.0
+ */
+public class Jugador extends MutxamelFC implements AccionesDeportivas{
 
 
     private Equipos categoria;
     private int dorsal;
     private Posiciones posicion;
 
+    /**
+     * Constructor de la clase Jugador.
+     *
+     * @param nombre nombre del jugador
+     * @param edad edad del jugador
+     * @param categoria categoría del equipo
+     * @param dorsal número de camiseta
+     * @param posicion posición en el campo
+     */
     public Jugador(String nombre, int edad, Equipos categoria, int dorsal, Posiciones posicion) {
         super(nombre, edad);
         this.categoria = categoria;
@@ -39,14 +55,23 @@ public class Jugador extends MutxamielFC implements AccionesDeportivas{
         System.out.printf("El jugador " + getNombre() + " está jugando el partido contra " + rival);
     }
 
+    /**
+     * Simula el calentamiento antes del partido.
+     */
     public void calentar(){
         System.out.printf(getNombre() + " está calentando.");
     }
 
+    /**
+     * Simula el descanso del jugador.
+     */
     public void descansar(){
         System.out.printf(getNombre() + " está descansando.");
     }
 
+    /**
+     * Simula que el jugador marca un gol.
+     */
     public void marcarGol(){
         System.out.printf(getNombre() + " ha marcado un GOL!");
     }
