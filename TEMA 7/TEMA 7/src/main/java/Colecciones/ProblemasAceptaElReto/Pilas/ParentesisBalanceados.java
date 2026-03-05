@@ -41,7 +41,7 @@ public class ParentesisBalanceados {
                         pila.pop();
                     }else {
                         System.out.println("NO");
-                        teclado.nextLine();
+                        return true;
                     }
                 }
             }
