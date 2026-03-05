@@ -3,7 +3,7 @@ package Colecciones;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class Colecciones {
+public class IntroColecciones {
 
     static void main() {
 
