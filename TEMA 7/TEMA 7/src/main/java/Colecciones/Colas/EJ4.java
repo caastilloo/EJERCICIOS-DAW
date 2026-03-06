@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class EJ4 {
 
     static Scanner teclado = new Scanner(System.in);
-    static Deque<String> cola = new LinkedList<>();
+    static LinkedList<String> cola = new LinkedList<>();
 
     static void main() {
 
@@ -57,7 +57,11 @@ public class EJ4 {
                 menu();
                 break;
             case '2':
-                System.out.println("| Eliminando el primer producto (" + cola.pollFirst() + ")");
+                if (cola.isEmpty()){
+                    System.out.println("-> ERROR. La lista está vacía.");
+                }else {
+                    System.out.println("| Eliminando el primer producto (" + cola.pollFirst() + ").");
+                }
 
                 menu();
                 break;
@@ -75,7 +79,11 @@ public class EJ4 {
                 menu();
                 break;
             case '4':
-                System.out.println("| Primer producto en la lista: " + cola.peekFirst());
+                if (cola.isEmpty()){
+                    System.out.println("-> ERROR. La lista está vacía.");
+                }else {
+                    System.out.println("| Primer producto en la lista: " + cola.peekFirst());
+                }
 
                 menu();
                 break;
@@ -86,13 +94,23 @@ public class EJ4 {
                 if (cola.contains(productoBuscar)){
                     System.out.println("El producto " + productoBuscar + " se encuentra en la lista.");
                 }else {
-                    System.out.println("El producto " + productoBuscar + " no se encuentra en la lista");
+                    System.out.println("ERROR. El producto " + productoBuscar + " no se encuentra en la lista");
                 }
 
                 menu();
                 break;
             case '6':
-                System.out.println("| Lista actual -> " + cola);
+                if (cola.isEmpty()){
+                    System.out.println("-> La lista está vacía.");
+                }else{
+                    System.out.println("| Lista actual:");
+
+                    for (String producto : cola){
+                        System.out.println((cola.indexOf(producto) + 1) + ". " + producto);
+                    }
+                }
+
+//                System.out.println("| Lista actual -> " + cola);
 
                 menu();
                 break;
