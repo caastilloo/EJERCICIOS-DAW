@@ -12,7 +12,6 @@ public class ParentesisBalanceados {
     public static void main(String[] args) {
 
         while (casoDePrueba()) {
-
         }
 
     }

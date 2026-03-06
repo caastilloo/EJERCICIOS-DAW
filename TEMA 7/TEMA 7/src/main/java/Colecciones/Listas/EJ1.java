@@ -1,8 +1,8 @@
-package Colecciones.EjsListas;
+package Colecciones.Listas;
 
 import java.util.Stack;
 
-public class Pilas1 {
+public class EJ1 {
 
     static void main() {
 
