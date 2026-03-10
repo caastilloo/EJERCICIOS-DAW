@@ -39,7 +39,7 @@ public class Potitos {
         }
 
         posiblesNoGustan.removeAll(gustan);
-        
+
         for (String ing : posiblesNoGustan) {
             System.out.print(ing + " ");
         }
