@@ -17,6 +17,7 @@ public class DiccionarioApp {
 
         diccionario.cargarPalabras();
 
+
         while (true) {
 
             String palabra = diccionario.palabraAleatoria();
@@ -32,7 +33,7 @@ public class DiccionarioApp {
 
             preguntas++;
 
-            String correcta = diccionario.traduce(palabra);
+            String correcta = diccionario.traduce(palabra).toLowerCase();
 
             if (respuesta.equals(correcta)) {
                 System.out.println("¡CORRECTO!");
