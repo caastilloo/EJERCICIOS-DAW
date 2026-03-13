@@ -17,6 +17,43 @@ public class DiccionarioApp {
 
         diccionario.cargarPalabras();
 
+        while (true) {
+
+            String palabra = diccionario.palabraAleatoria();
+            char pista = diccionario.primeraLetraTraduccion(palabra);
+
+            System.out.println(palabra.toUpperCase() + ": " + pista + "...");
+            System.out.print("Indique la respuesta: ");
+            String respuesta = teclado.nextLine().toLowerCase();
+
+            if (respuesta.equals("fin")) {
+                break;
+            }
+
+            preguntas++;
+
+            String correcta = diccionario.traduce(palabra);
+
+            if (respuesta.equals(correcta)) {
+                System.out.println("¡CORRECTO!");
+                aciertos++;
+            } else {
+                System.out.println("¡NO! La respuesta correcta es " + correcta);
+                errores++;
+            }
+
+            System.out.println();
+        }
+
+        System.out.println("FIN DEL PROGRAMA");
+        System.out.println("Total preguntas: " + preguntas);
+        System.out.println("Total aciertos: " + aciertos);
+        System.out.println("Total errores: " + errores);
+
+        if (preguntas > 0) {
+            System.out.println("Aciertos: " + (aciertos * 100 / preguntas) + "%");
+        }
+
     }
 
 }
