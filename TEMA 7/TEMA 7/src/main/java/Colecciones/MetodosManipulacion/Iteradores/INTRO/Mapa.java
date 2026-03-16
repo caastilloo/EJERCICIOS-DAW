@@ -1,10 +1,10 @@
-package Colecciones.MetodosManipulacion.Iteradores;
+package Colecciones.MetodosManipulacion.Iteradores.INTRO;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class INTROMap {
+public class Mapa {
 
     static HashMap<String, Integer> goleadores = new HashMap<>();
 

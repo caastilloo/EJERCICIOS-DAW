@@ -1,10 +1,9 @@
-package Colecciones.MetodosManipulacion.Iteradores;
+package Colecciones.MetodosManipulacion.Iteradores.INTRO;
 
 import java.util.Iterator;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
-public class INTRO {
+public class Iterador {
 
     static TreeSet<String> peliculas = new TreeSet<>();
 
