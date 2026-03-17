@@ -40,7 +40,7 @@ public class ReservasApp {
     public static LinkedHashSet<Reservas> obtenerReservas(Usuario usuario){
 
         return mapa.get(usuario);
-        
+
     }
 
     public static void crearReserva(Usuario usuario, Pista pista){
