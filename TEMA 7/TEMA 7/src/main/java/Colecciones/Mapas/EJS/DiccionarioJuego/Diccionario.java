@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Diccionario {
 
-    private static HashMap<String, String> diccionario;
+    private HashMap<String, String> diccionario;
 
     public Diccionario() {
         diccionario = new HashMap<>();
