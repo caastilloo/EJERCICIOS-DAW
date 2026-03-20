@@ -39,14 +39,19 @@ public class CarreraAutobuses {
                     System.out.println(dibujarAutobus2(a-1));
                     Thread.sleep(70);
                     contadorBus1++;
-                }
-
-                if (autobusRandom == 0){
+                }else {
                     System.out.println(dibujarAutobus1(a-1));
                     System.out.println(dibujarAutobus2(a));
                     Thread.sleep(70);
                     contadorBus2++;
                 }
+
+//                if (autobusRandom == 0){
+//                    System.out.println(dibujarAutobus1(a-1));
+//                    System.out.println(dibujarAutobus2(a));
+//                    Thread.sleep(70);
+//                    contadorBus2++;
+//                }
 
                 System.out.println();
 
