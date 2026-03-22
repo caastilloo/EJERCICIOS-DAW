@@ -1,19 +1,36 @@
 package Colecciones.Practica;
 
+import java.util.Objects;
+
 public class Cliente {
 
     private String usuario;
     private String contrasenya;
-    private String direccion;
-    private Pedido pedido;
-    private boolean promociones; // REVISAR
+    private String direccion = "Calle falsa, 123";
+    private Pedido pedido = null;
+    private boolean promociones = false; // REVISAR
 
-    public Cliente(String usuario, String contrasenya, String direccion, Pedido pedido, boolean promociones) {
+    public Cliente(String usuario, String contrasenya) {
         this.usuario = usuario;
         this.contrasenya = contrasenya;
-        this.direccion = direccion;
-        this.pedido = pedido;
-        this.promociones = promociones;
+        direccion = "Calle falsa, 123";
+        pedido = null;
+        promociones = false;
+    }
+
+    public static void crearPedido(){
+        System.out.println("Creando nuevo pedido ...\n");
+        Pedido pedido = new Pedido(0);
+    }
+
+    public void insertarProducto(Producto producto){
+
+        if (pedido.getPedido().containsKey(producto)){
+            int cantidad = pedido.getPedido().get(producto);
+            pedido.getPedido().put(producto, cantidad + 1);
+        }else {
+            pedido.getPedido().put(producto, 1);
+        }
     }
 
     public String getUsuario() {
@@ -56,16 +73,26 @@ public class Cliente {
         this.promociones = promociones;
     }
 
-    public void crearPedido(){
-
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Cliente cliente = (Cliente) o;
+        return Objects.equals(usuario, cliente.usuario) && Objects.equals(contrasenya, cliente.contrasenya);
     }
 
-    public void insertarProducto(){
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(usuario, contrasenya);
     }
 
-    public double importePedido(){
-
-        return 0;
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "usuario='" + usuario + '\'' +
+                ", contrasenya='" + contrasenya + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", pedido=" + pedido +
+                ", promociones=" + promociones +
+                '}';
     }
 }

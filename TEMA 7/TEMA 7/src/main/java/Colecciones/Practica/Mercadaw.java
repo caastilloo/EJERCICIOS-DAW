@@ -1,12 +1,55 @@
 package Colecciones.Practica;
 
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Mercadaw {
 
-    private List<Cliente> clientes; // revisar tipo de lista
+    static Scanner teclado = new Scanner(System.in);
+    static Random aleatorio = new Random();
 
-    public static void generarClientes(){
+    private LinkedHashSet<Cliente> clientes = new LinkedHashSet<>(); // revisar tipo de lista
 
+    public Mercadaw() {
+        clientes = new LinkedHashSet<>();
     }
+
+    public void generarClientes(){
+
+        String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        int numClientes = aleatorio.nextInt(10);
+
+        for (int i = 0; i < numClientes; i++) {
+
+            String usuario = "";
+            for (int j = 0; j < 8; j++) {
+                int indice = aleatorio.nextInt(caracteres.length());
+                usuario += caracteres.charAt(indice);
+            }
+
+            String contrasenya = "";
+            for (int n = 0; n < 8; n++) {
+                int indice = aleatorio.nextInt(caracteres.length());
+                contrasenya += caracteres.charAt(indice);
+            }
+
+            Cliente cliente = new Cliente(usuario, contrasenya);
+            clientes.add(cliente);
+        }
+
+        System.out.println(clientes.size() + " clientes generados: ");
+        for (Cliente cliente : clientes){
+            System.out.println(cliente);
+        }
+
+//        clientes.autenticacion(clientes);
+    }
+
+    public LinkedHashSet<Cliente> getClientes() {
+        return clientes; //revisar
+    }
+
+    // getClientes
 }
