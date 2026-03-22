@@ -84,7 +84,7 @@ public class Artista extends MutxaAwards implements AccionesAsistentes{
     public String toString() {
         return "Artista{" +
                 "nombre='" + nombre + '\'' +
-                ", listaPremios=" + listaPremios +
+                ", numPremios=" + listaPremios.size() +
                 ", listaCategorias=" + listaCategorias +
                 ", edicion=" + edicion +
                 '}';

@@ -68,11 +68,13 @@ public class AppMutxaAwards {
         artista3.getListaCategorias().add(Categoria.MEJOR_ACTOR);
         artista4.getListaCategorias().add(Categoria.MEJOR_ACTOR);
 
+        premio.setGanador(artista1);
+        artista1.getListaPremios().add(premio);
         artista1.ganarPremio(premio);
         System.out.println();
-        artista1.getListaPremios().add(premio);
 
-        premio.setGanador(artista1);
+
+
 
         for (AccionesAsistentes asistentes : listaAsistentes){
             asistentes.aplaudir();
@@ -118,12 +120,12 @@ public class AppMutxaAwards {
 
         Premio premio2 = new Premio(2025, Categoria.MEJOR_PELICULA);
 
+
+        premio2.setGanador(artista5);
+        artista5.getListaPremios().add(premio2);
         artista5.ganarPremio(premio2);
         System.out.println();
 
-        artista5.getListaPremios().add(premio2);
-
-        premio2.setGanador(artista5);
 
         for (AccionesAsistentes asistentes : listaAsistentes){
             asistentes.celebrarPremio(premio2);

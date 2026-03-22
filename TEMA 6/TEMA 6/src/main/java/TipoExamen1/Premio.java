@@ -44,7 +44,7 @@ public class Premio extends MutxaAwards{
     public String toString() {
         return "Premio{" +
                 "categoria=" + categoria +
-                ", ganador=" + ganador +
+                ", ganador=" + ganador.getNombre() +
                 ", edicion=" + edicion +
                 '}';
     }
