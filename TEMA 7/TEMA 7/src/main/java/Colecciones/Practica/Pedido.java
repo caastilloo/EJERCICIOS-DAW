@@ -1,9 +1,10 @@
 package Colecciones.Practica;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-public class    Pedido {
+public class Pedido {
 
     private HashMap<Producto, Integer> pedido;
     private double importe_total;
@@ -18,11 +19,16 @@ public class    Pedido {
     }
 
     public void aplicarPromo3x2(){
-
+        for (Map.Entry<Producto, Integer> mapita : pedido.entrySet()){
+            if (mapita.getValue() % 3 == 0){
+                int unidadesGratis = mapita.getValue() / 3;
+                this.importe_total -= (unidadesGratis * mapita.getKey().getPrecio());
+            }
+        }
     }
 
     public void aplicarPromo10(){
-
+        this.importe_total = importe_total * 0.9;
     }
 
     public HashMap<Producto, Integer> getPedido() {

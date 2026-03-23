@@ -18,9 +18,9 @@ public class Cliente {
         promociones = false;
     }
 
-    public static void crearPedido(){
-        System.out.println("Creando nuevo pedido ...\n");
-        Pedido pedido = new Pedido(0);
+    public void crearPedido(){
+        System.out.println("\nCreando nuevo pedido ...\n");
+        this.pedido = new Pedido(0);
     }
 
     public void insertarProducto(Producto producto){
