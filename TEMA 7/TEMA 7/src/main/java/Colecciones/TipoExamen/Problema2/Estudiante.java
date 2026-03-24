@@ -1,4 +1,4 @@
-package Colecciones.TipoExamen;
+package Colecciones.TipoExamen.Problema2;
 
 import java.util.Objects;
 
