@@ -1,19 +1,29 @@
-package Colecciones.Practica;
+package Colecciones.MercaDaw;
 
 import java.util.*;
 
+/**
+ * @author Jose
+ * Clase principal que gestiona la interacción con el usuario.
+ */
 public class AppZonaClientes {
 
     static Cliente cliente;
     static Scanner teclado = new Scanner(System.in);
 
+    /**
+     * Método principal de ejecución.
+     */
     static void main() {
         Mercadaw mercadaw = new Mercadaw();
         mercadaw.generarClientes();
         autenticacion(mercadaw.getClientes());
-        imprimirProductos();
     }
 
+    /**
+     * Gestiona la autenticación del cliente.
+     * @param clientes conjunto de clientes
+     */
     public static void autenticacion(LinkedHashSet<Cliente> clientes){
         System.out.println("=== COMPRA ONLINE EN MERCADAW ===\n");
 
@@ -43,10 +53,17 @@ public class AppZonaClientes {
         }
     }
 
+    /**
+     * Inicia el proceso de compra.
+     */
     public static void iniciarCompra(){
         cliente.crearPedido();
+        imprimirProductos();
     }
 
+    /**
+     * Muestra el menú de productos y permite añadirlos al pedido.
+     */
     public static void imprimirProductos(){
         System.out.println("Añade productos a tu lista de la compra ...");
 
@@ -87,35 +104,37 @@ public class AppZonaClientes {
             imprimirProductos();
         }
 
-
-
-
-
     }
 
+    /**
+     * Muestra el resumen del pedido.
+     */
     public static void imprimirResumen(){
-
-        double importeTotal = 0;
 
         System.out.println(" === RESUMEN DE TU CARRITO DE LA COMPRA === ");
         System.out.println("Productos:");
 
         for (Map.Entry<Producto, Integer> mapita : cliente.getPedido().getPedido().entrySet()){
             System.out.println(mapita.getValue() + " | " + mapita.getKey() + mapita.getKey().getPrecio());
-            importeTotal+=mapita.getKey().getPrecio();
         }
 
-        System.out.println("IMPORTE TOTAL: " + importeTotal);
+        System.out.println("IMPORTE TOTAL: " + cliente.getPedido().getImporte_total() + "€.");
 
         mostrarOpciones();
 
     }
 
+    /**
+     * Muestra un mensaje de despedida.
+     */
     public static void imprimirDespedida(){
         System.out.println(" === GRACIAS POR SU PEDIDO ===");
         System.out.println("Lo recibirá en unos días en la dirección " + cliente.getDireccion());
     }
 
+    /**
+     * Muestra las opciones finales al usuario.
+     */
     public static void mostrarOpciones(){
         System.out.println("\n================================");
         System.out.println("¿Qué desea hacer?");
@@ -129,18 +148,26 @@ public class AppZonaClientes {
         switch (opcion){
 
             case 1:
-                if (cliente.isPromociones() == false){
-
+                if (!cliente.isPromociones()){
+                    cliente.getPedido().aplicarPromo3x2();
+                    cliente.getPedido().aplicarPromo10();
+                    cliente.setPromociones(true);
+                    System.out.println("Promociones aplicadas correctamente.");
+                    imprimirProductos();
                 }else {
                     System.out.println("Las promociones ya han sido aplicadas.");
+                    mostrarOpciones();
                 }
+                break;
             case 2:
-
+                imprimirResumen();
+                break;
             case 3:
                 imprimirDespedida();
                 break;
             default:
                 System.out.println("ERROR. Opción no válida.");
+                mostrarOpciones();
                 break;
         }
 

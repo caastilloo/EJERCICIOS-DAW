@@ -1,15 +1,24 @@
-package Colecciones.Practica;
+package Colecciones.MercaDaw;
 
 import java.util.Objects;
 
+/**
+ * @author Jose
+ * Clase que representa a un cliente del sistema.
+ */
 public class Cliente {
 
     private String usuario;
     private String contrasenya;
-    private String direccion = "Calle falsa, 123";
-    private Pedido pedido = null;
-    private boolean promociones = false; // REVISAR
+    private String direccion;
+    private Pedido pedido;
+    private boolean promociones;
 
+    /**
+     * Constructor del cliente.
+     * @param usuario nombre de usuario
+     * @param contrasenya contraseña del usuario
+     */
     public Cliente(String usuario, String contrasenya) {
         this.usuario = usuario;
         this.contrasenya = contrasenya;
@@ -18,11 +27,18 @@ public class Cliente {
         promociones = false;
     }
 
+    /**
+     * Crea un nuevo pedido para el cliente.
+     */
     public void crearPedido(){
         System.out.println("\nCreando nuevo pedido ...\n");
         this.pedido = new Pedido(0);
     }
 
+    /**
+     * Inserta un producto en el pedido del cliente.
+     * @param producto producto a añadir
+     */
     public void insertarProducto(Producto producto){
 
         if (pedido.getPedido().containsKey(producto)){
@@ -31,6 +47,8 @@ public class Cliente {
         }else {
             pedido.getPedido().put(producto, 1);
         }
+
+        pedido.actualizarImporteTotal(producto.getPrecio());
     }
 
     public String getUsuario() {
