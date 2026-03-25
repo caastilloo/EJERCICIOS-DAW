@@ -140,18 +140,6 @@ Permite mostrar el pedido ordenado por número de unidades en orden descendente.
 
 ---
 
-## Problemas y soluciones
-
-| Problema                     | Solución                                 |
-| ---------------------------- | ---------------------------------------- |
-| Autenticación incorrecta     | Búsqueda del cliente real en el conjunto |
-| Doble suma del importe       | Corrección de la lógica de actualización |
-| Error en promo 3x2           | Recalculado usando el precio             |
-| Posibles clientes duplicados | Uso de `Set`                             |
-| Reaplicación de promociones  | Control mediante boolean                 |
-
----
-
 ## Ejecución
 
 1. Ejecutar la clase `AppZonaClientes`
