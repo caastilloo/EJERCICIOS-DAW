@@ -32,7 +32,7 @@ public class Cliente {
      */
     public void crearPedido(){
         System.out.println("\nCreando nuevo pedido ...\n");
-        this.pedido = new Pedido(0);
+        this.pedido = new Pedido();
     }
 
     /**

@@ -1,8 +1,6 @@
 package Colecciones.MercaDaw;
 
-import java.util.LinkedHashSet;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @author Jose
@@ -10,16 +8,14 @@ import java.util.Scanner;
  */
 public class Mercadaw {
 
-    static Scanner teclado = new Scanner(System.in);
     static Random aleatorio = new Random();
-
-    private LinkedHashSet<Cliente> clientes = new LinkedHashSet<>(); // revisar tipo de lista
+    private Set<Cliente> clientes;
 
     /**
      * Constructor de Mercadaw.
      */
     public Mercadaw() {
-        clientes = new LinkedHashSet<>();
+        this.clientes = new LinkedHashSet<>();
     }
 
     /**
@@ -55,7 +51,7 @@ public class Mercadaw {
 
     }
 
-    public LinkedHashSet<Cliente> getClientes() { // REVISAR
-        return clientes;
+    public Set<Cliente> getClientes() {
+        return Collections.unmodifiableSet(clientes);
     }
 }

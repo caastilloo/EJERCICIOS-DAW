@@ -45,7 +45,7 @@ public class Pedido {
             nuevoImporte += subtotal;
         }
 
-        importe_total = nuevoImporte;
+        this.importe_total = nuevoImporte;
     }
 
     /**

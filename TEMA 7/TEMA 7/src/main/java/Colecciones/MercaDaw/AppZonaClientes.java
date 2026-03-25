@@ -115,10 +115,10 @@ public class AppZonaClientes {
         System.out.println("Productos:");
 
         for (Map.Entry<Producto, Integer> mapita : cliente.getPedido().getPedido().entrySet()){
-            System.out.println(mapita.getValue() + " | " + mapita.getKey() + mapita.getKey().getPrecio());
+            System.out.println(mapita.getValue() + " | " + mapita.getKey() + " " + mapita.getKey().getPrecio());
         }
 
-        System.out.println("IMPORTE TOTAL: " + cliente.getPedido().getImporte_total() + "€.");
+        System.out.println("\nIMPORTE TOTAL: " + cliente.getPedido().getImporte_total() + "€.");
 
         mostrarOpciones();
 
@@ -152,8 +152,11 @@ public class AppZonaClientes {
                     cliente.getPedido().aplicarPromo3x2();
                     cliente.getPedido().aplicarPromo10();
                     cliente.setPromociones(true);
-                    System.out.println("Promociones aplicadas correctamente.");
-                    imprimirProductos();
+
+                    System.out.println("=====================================");
+                    System.out.println("  PROMO 3x2 Y 10% DESC. APLICADAS    ");
+                    System.out.println("=====================================");
+                    
                 }else {
                     System.out.println("Las promociones ya han sido aplicadas.");
                     mostrarOpciones();
