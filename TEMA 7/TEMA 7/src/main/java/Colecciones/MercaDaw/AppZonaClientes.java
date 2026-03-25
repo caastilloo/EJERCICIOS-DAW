@@ -25,7 +25,7 @@ public class AppZonaClientes {
      * @param clientes conjunto de clientes
      */
     public static void autenticacion(Set<Cliente> clientes){
-        System.out.println("=== COMPRA ONLINE EN MERCADAW ===\n");
+        System.out.println("\n=== COMPRA ONLINE EN MERCADAW ===");
 
         int contador = 3;
         boolean condicion = true;
@@ -65,7 +65,7 @@ public class AppZonaClientes {
      * Muestra el menú de productos y permite añadirlos al pedido.
      */
     public static void imprimirProductos(){
-        System.out.println("Añade productos a tu lista de la compra ...");
+        System.out.println("\nAñade productos a tu lista de la compra ...");
 
         for (Producto producto : Producto.values()){
             System.out.println(producto + ": " + producto.getPrecio() + "€");
@@ -73,13 +73,14 @@ public class AppZonaClientes {
 
         try{
 
-            System.out.println("\n=================================================================================");
+            System.out.println("\n===============================================================");
 
             System.out.print("\nElige un producto: ");
             Producto producto = Producto.valueOf(teclado.next().toUpperCase());
-            cliente.insertarProducto(producto);
-            cliente.getPedido().actualizarImporteTotal(producto.getPrecio());
 
+            System.out.println("\n===============================================================\n");
+
+            cliente.insertarProducto(producto);
             System.out.println("Has añadidio " + producto + " con un precio de " + producto.getPrecio() + "€");
             System.out.println("Importe total del pedido: " + cliente.getPedido().getImporte_total() + "€");
 
@@ -97,8 +98,6 @@ public class AppZonaClientes {
                     System.out.println("ERROR. Opcion incorrecta.");
             }
 
-            System.out.println("\n=================================================================================");
-
         }catch (IllegalArgumentException er){
             System.out.println("Producto no reconocido. Elige otro ...");
             imprimirProductos();
@@ -111,7 +110,7 @@ public class AppZonaClientes {
      */
     public static void imprimirResumen(){
 
-        System.out.println(" === RESUMEN DE TU CARRITO DE LA COMPRA === ");
+        System.out.println("\n === RESUMEN DE TU CARRITO DE LA COMPRA === ");
         System.out.println("Productos:");
 
         for (Map.Entry<Producto, Integer> mapita : cliente.getPedido().getPedido().entrySet()){
@@ -128,7 +127,7 @@ public class AppZonaClientes {
      * Muestra un mensaje de despedida.
      */
     public static void imprimirDespedida(){
-        System.out.println(" === GRACIAS POR SU PEDIDO ===");
+        System.out.println("\n === GRACIAS POR SU PEDIDO ===");
         System.out.println("Lo recibirá en unos días en la dirección " + cliente.getDireccion());
     }
 
@@ -136,7 +135,7 @@ public class AppZonaClientes {
      * Muestra las opciones finales al usuario.
      */
     public static void mostrarOpciones(){
-        System.out.println("\n================================");
+        System.out.println("\n=====================================");
         System.out.println("¿Qué desea hacer?");
         System.out.println("[1]. Aplicar promos.");
         System.out.println("[2]. Mostrar resumen ordenador por uds.");
@@ -153,10 +152,10 @@ public class AppZonaClientes {
                     cliente.getPedido().aplicarPromo10();
                     cliente.setPromociones(true);
 
-                    System.out.println("=====================================");
+                    System.out.println("\n=====================================");
                     System.out.println("  PROMO 3x2 Y 10% DESC. APLICADAS    ");
                     System.out.println("=====================================");
-
+                    mostrarOpciones();
                 }else {
                     System.out.println("Las promociones ya han sido aplicadas.");
                     mostrarOpciones();

@@ -31,7 +31,7 @@ public class Cliente {
      * Crea un nuevo pedido para el cliente.
      */
     public void crearPedido(){
-        System.out.println("\nCreando nuevo pedido ...\n");
+        System.out.println("\nCreando nuevo pedido ...");
         this.pedido = new Pedido();
     }
 
