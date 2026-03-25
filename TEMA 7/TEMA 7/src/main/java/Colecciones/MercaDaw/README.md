@@ -35,7 +35,7 @@ Representa a un usuario del sistema:
 * Pedido asociado
 * Estado de promociones
 
-### 🔹 `Pedido`
+### `Pedido`
 
 Gestiona el carrito de compra:
 
@@ -95,15 +95,15 @@ Se muestra:
 
 El sistema incluye dos promociones:
 
-#### ✔ 3x2
+#### 3x2
 
 Por cada 3 unidades de un producto, se pagan solo 2.
 
-#### ✔ 10% descuento
+#### 10% descuento
 
 Aplicado sobre el total después del 3x2.
 
-#### ✔ Restricción
+#### Restricción
 
 Las promociones solo pueden aplicarse **una vez por cliente**.
 
