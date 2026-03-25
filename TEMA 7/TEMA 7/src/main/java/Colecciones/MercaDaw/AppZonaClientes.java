@@ -24,7 +24,7 @@ public class AppZonaClientes {
      * Gestiona la autenticación del cliente.
      * @param clientes conjunto de clientes
      */
-    public static void autenticacion(LinkedHashSet<Cliente> clientes){
+    public static void autenticacion(Set<Cliente> clientes){
         System.out.println("=== COMPRA ONLINE EN MERCADAW ===\n");
 
         int contador = 3;
@@ -156,7 +156,7 @@ public class AppZonaClientes {
                     System.out.println("=====================================");
                     System.out.println("  PROMO 3x2 Y 10% DESC. APLICADAS    ");
                     System.out.println("=====================================");
-                    
+
                 }else {
                     System.out.println("Las promociones ya han sido aplicadas.");
                     mostrarOpciones();
