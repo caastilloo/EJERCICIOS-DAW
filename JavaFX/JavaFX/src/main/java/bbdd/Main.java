@@ -59,7 +59,7 @@ public class Main {
 
                 Integer nia = resultados.getInt("nia");
                 String nombre = resultados.getString("nombre");
-                LocalDate fecha = resultados.getDate("fecha_nacimento");
+                LocalDate fecha = resultados.getDate("fecha_nacimento").toLocalDate();
 
                 System.out.println("Estudiante con nia " + nia + " nombre: " + nombre +  " fecha de nacimiento: " + fecha);
 
