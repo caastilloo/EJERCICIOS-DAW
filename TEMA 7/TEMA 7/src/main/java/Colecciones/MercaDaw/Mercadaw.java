@@ -1,25 +1,30 @@
-package Colecciones.Practica;
+package Colecciones.MercaDaw;
 
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
+/**
+ * @author Jose
+ * Clase que representa el sistema del supermercado.
+ */
 public class Mercadaw {
 
-    static Scanner teclado = new Scanner(System.in);
     static Random aleatorio = new Random();
+    private Set<Cliente> clientes;
 
-    private LinkedHashSet<Cliente> clientes = new LinkedHashSet<>(); // revisar tipo de lista
-
+    /**
+     * Constructor de Mercadaw.
+     */
     public Mercadaw() {
-        clientes = new LinkedHashSet<>();
+        this.clientes = new LinkedHashSet<>();
     }
 
+    /**
+     * Genera clientes aleatorios y los almacena en el sistema.
+     */
     public void generarClientes(){
 
         String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        int numClientes = aleatorio.nextInt(10);
+        int numClientes = aleatorio.nextInt(15);
 
         for (int i = 0; i < numClientes; i++) {
 
@@ -44,12 +49,9 @@ public class Mercadaw {
             System.out.println(cliente);
         }
 
-//        clientes.autenticacion(clientes);
     }
 
-    public LinkedHashSet<Cliente> getClientes() {
-        return clientes; //revisar
+    public Set<Cliente> getClientes() {
+        return Collections.unmodifiableSet(clientes);
     }
-
-    // getClientes
 }
